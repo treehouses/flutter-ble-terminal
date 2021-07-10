@@ -4,12 +4,35 @@ import 'package:flutter_blue/flutter_blue.dart';
 import 'package:treehousesble/ui/home/screen/device_screen.dart';
 import 'package:treehousesble/ui/home/widget/scan_result_tile.dart';
 
-class FindDevicesScreen extends StatelessWidget {
+class FindDevicesScreen extends StatefulWidget {
+  @override
+  State<FindDevicesScreen> createState() => _FindDevicesScreenState();
+}
+
+class _FindDevicesScreenState extends State<FindDevicesScreen> {
+  var piAddress = <String>{"B8:27:EB", "DC:A6:32", "E4:5F:01",
+                           "B8-27-EB", "DC-A6-32", "E4-5F-01",
+                           "B827.EB", "DCA6.32", "E45F.01",
+                           "b8:27:eb", "dc:a6:32", "e4:5f:01",
+                           "b8-27-eb", "dc-a6-32", "e4-5f-01",
+                           "b827.eb", "dca6.32", "e45f.01"};
+
+  var filter = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Find Devices'),
+        actions: [Switch(
+          onChanged: (bool value){
+            setState(() {
+              filter = value;
+            });
+          },
+          value: filter,
+          activeColor: Colors.blue[200],
+        )],
       ),
       body: RefreshIndicator(
         onRefresh: () =>
@@ -51,18 +74,7 @@ class FindDevicesScreen extends StatelessWidget {
                 stream: FlutterBlue.instance.scanResults,
                 initialData: [],
                 builder: (c, snapshot) => Column(
-                  children: snapshot.data!
-                      .map(
-                        (r) => ScanResultTile(
-                      result: r,
-                      onTap: () => Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        r.device.connect();
-                        return DeviceScreen(device: r.device);
-                      })),
-                    ),
-                  )
-                      .toList(),
+                  children: getDeviceList(context,snapshot)
                 ),
               ),
             ],
@@ -88,5 +100,44 @@ class FindDevicesScreen extends StatelessWidget {
         },
       ),
     );
+  }
+
+  List<Widget> getDeviceListFilter(BuildContext context, AsyncSnapshot<List<ScanResult>> snapshot) {
+    List<Widget> list = [];
+    snapshot.data!.forEach((ScanResult r) {
+      piAddress.forEach((element) {
+        if(r.device.id.toString().startsWith(element)){
+          list.add(  ScanResultTile(
+            result: r,
+            onTap: () => Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) {
+              r.device.connect();
+              return DeviceScreen(device: r.device);
+            })),
+          ));
+        }
+        });
+    });
+    return list;
+  }
+
+  List<Widget> getDeviceList(BuildContext context, AsyncSnapshot<List<ScanResult>> snapshot) {
+    if (filter) return getDeviceListFilter(context, snapshot);
+        else return getDeviceListUnfiltered(context, snapshot);
+  }
+
+  List<Widget> getDeviceListUnfiltered(BuildContext context, AsyncSnapshot<List<ScanResult>> snapshot) {
+    List<Widget> list = [];
+    snapshot.data!.forEach((ScanResult r) {
+      list.add(  ScanResultTile(
+        result: r,
+        onTap: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) {
+          r.device.connect();
+          return DeviceScreen(device: r.device);
+        })),
+      ));
+    });
+    return list;
   }
 }
