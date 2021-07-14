@@ -16,7 +16,7 @@ jobs:
       with:
         channel: 'stable'
     - run: flutter pub get
-    - run: flutter build apk -no-shrink #--no-sound-null-safety
+    - run: flutter build apk --no-shrink #--no-sound-null-safety
     - run: cd build/app/outputs && tree
     - run: |
         cd build/app/outputs/flutter-apk/
