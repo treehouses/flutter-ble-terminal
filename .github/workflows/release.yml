@@ -14,9 +14,9 @@ jobs:
         java-version: '12.x'
     - uses: subosito/flutter-action@v1
       with:
-        channel: 'stable' # 'dev', 'alpha', default to: 'stable'
+        channel: 'stable'
     - run: flutter pub get
-    - run: flutter build apk --no-sound-null-safety #package:bluetoothadapter doesn't support null safety
+    - run: flutter build apk --no-sound-null-safety
     - run: cd build/app/outputs && tree
     - run: |
         cd build/app/outputs/flutter-apk/
