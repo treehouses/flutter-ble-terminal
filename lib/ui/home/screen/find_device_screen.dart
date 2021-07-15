@@ -81,6 +81,7 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: StreamBuilder<bool>(
         stream: FlutterBlue.instance.isScanning,
         initialData: false,
@@ -98,6 +99,23 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
                     .startScan(timeout: Duration(seconds: 4)));
           }
         },
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex : 0,
+          fixedColor: Colors.green,
+          items: [
+            BottomNavigationBarItem(
+              title: Text("Home"),
+              icon: Icon(Icons.home), ),
+            BottomNavigationBarItem(
+              title: Text("Terminal"),
+              icon: Icon(Icons.home), ),
+            BottomNavigationBarItem(
+              title: Text("Settings"),
+              icon: Icon(Icons.settings), ),
+          ],
+          onTap: (int indexOfItem){
+          }
       ),
     );
   }
