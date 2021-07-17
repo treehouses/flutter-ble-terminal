@@ -49,4 +49,4 @@ jobs:
     - name: Build IPA
       run: |
         #Test flutter build ipa
-        flutter build ipa --export-options-plist
+        flutter build ipa #--export-options-plist not needed
