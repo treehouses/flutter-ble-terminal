@@ -48,7 +48,7 @@ jobs:
           
     - name: Check if Runner.app exists
       run: |
-          cd /Users/UserName/Documents/AppName/build/ios/iphoneos/
+          cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
           ls | grep "Runner"
           
     #- name: Build IPA #requires developer certificate
