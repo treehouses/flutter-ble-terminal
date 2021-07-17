@@ -45,8 +45,13 @@ jobs:
           #flutter pub get
           flutter build ios --release --no-codesign #testing --debug
           #flutter build ios --debug #test failed
-
-    - name: Build IPA
+          
+    - name: Check if Runner.app exists
       run: |
-        #Test flutter build ipa
-        flutter build ipa #--export-options-plist not needed
+          cd /Users/UserName/Documents/AppName/build/ios/iphoneos/
+          ls | grep "Runner"
+          
+    #- name: Build IPA #requires developer certificate
+    #  run: |
+    #    #Test flutter build ipa
+    #    flutter build ipa #--export-options-plist not needed
