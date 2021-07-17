@@ -41,8 +41,9 @@ jobs:
         channel: 'stable' # 'dev', 'alpha', default to: 'stable'
         flutter-version: '2.2.0' # you can also specify exact version of flutter
     - run: |
-        flutter pub get
-        flutter build ios --release --no-codesign
+        #flutter pub get
+        #flutter build ios --release --no-codesign #testing --debug
+        flutter build ios --debug
 
         #Test flutter build ipa
         flutter build ipa --export-options-plist
