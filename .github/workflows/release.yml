@@ -51,7 +51,9 @@ jobs:
         cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
         tree
         ls -al
-        tar -zcvf Payload.ipa Runner.app
+        mkdir Payload
+        mv Runner.app Payload/Runner.app
+        tar -zcvf Payload.ipa Payload
 
         
     - name: Upload binaries to release
