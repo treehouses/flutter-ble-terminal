@@ -51,11 +51,11 @@ jobs:
           cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
           ls | grep "Runner"
 
-    - name: Create Payload
-      run: |
-          cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
-          mkdir Payload
-          mv Runner.app Payload/Runner.app
+    #- name: Create Payload
+    #  run: |
+    #      cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
+    #      mkdir Payload
+    #      mv Runner.app Payload/Runner.app
           
     #- name: Build IPA #requires developer certificate
     #  run: |
