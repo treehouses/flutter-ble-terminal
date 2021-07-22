@@ -50,6 +50,11 @@ jobs:
       run: |
           cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
           ls | grep "Runner"
+
+    - name: Create Payload
+      run: |
+          mkdir Payload
+          cp Runner.app Payload/Runner.app
           
     #- name: Build IPA #requires developer certificate
     #  run: |
