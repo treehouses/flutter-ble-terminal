@@ -53,6 +53,7 @@ jobs:
 
     - name: Create Payload
       run: |
+          cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
           mkdir Payload
           cp Runner.app Payload/Runner.app
           
