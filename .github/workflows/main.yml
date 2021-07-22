@@ -54,7 +54,7 @@ jobs:
     - name: Create Payload
       run: |
           cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
-          #mkdir Payload
+          mkdir Payload
           mv Runner.app Payload/Runner.app
           
     #- name: Build IPA #requires developer certificate
