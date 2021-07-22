@@ -49,11 +49,17 @@ jobs:
     - run: brew install tree
     - run: |
         cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
+        #tree
+        #ls -al
+        mkdir Payload
+        #mv Runner.app Payload/Runner.app
+        cp -R Runner.app Payload
+        cp -R Runner.app/iTunesArtwork /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
+        #tar -zcvf Payload.ipa Payload
+        /usr/bin/zip -r Payload.ipa Payload iTunesArtwork
+        rm -rf Payload iTunesArtwork
         tree
         ls -al
-        mkdir Payload
-        mv Runner.app Payload/Runner.app
-        tar -zcvf Payload.ipa Payload
 
         
     - name: Upload binaries to release
