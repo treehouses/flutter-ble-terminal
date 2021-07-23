@@ -56,7 +56,7 @@ jobs:
         cp -R Runner.app Payload
         #cp -R Runner.app/iTunesArtwork /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos #no iTunes
         #tar -zcvf Payload.ipa Payload #old
-        #/usr/bin/zip -r Payload.ipa Payload iTunesArtwork #no iTunes
+        /usr/bin/zip -r Payload.ipa Payload iTunesArtwork #no iTunes
         #rm -rf Payload iTunesArtwork #no iTunes
         tree
         ls -al
