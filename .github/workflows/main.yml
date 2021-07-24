@@ -33,7 +33,8 @@ jobs:
         
     - name: reference keystore
       run: |
-        touch flutter-ble-terminal/android/key.properties
+        cd flutter-ble-terminal/android
+        touch key.properties
     
     - name: rename apk
       run: |
