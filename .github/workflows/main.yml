@@ -31,10 +31,10 @@ jobs:
         cd /home/runner/
         ls -al | grep -e "upload-keystore.jks"
         
-    - name: reference keystore
-      run: |
-        cd flutter-ble-terminal/android
-        touch key.properties
+    #- name: reference keystore
+    #  run: |
+    #    cd flutter-ble-terminal/android
+    #    touch key.properties
     
     - name: rename apk
       run: |
