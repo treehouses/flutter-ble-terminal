@@ -31,10 +31,6 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
    }
 
-   android {
-         ...
-   }
-
 android {
     compileSdkVersion 30
 
