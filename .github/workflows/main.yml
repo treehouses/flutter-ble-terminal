@@ -26,14 +26,14 @@ jobs:
     - run: flutter build apk --no-sound-null-safety
     
     - name: sign plz
-    - run: |
-        -keytool -genkey -v -keystore ~/upload-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+      run: |
+        keytool -genkey -v -keystore ~/upload-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
     
     - name: rename apk
-    - run: |
-        -cd build/app/outputs/flutter-apk/
-        -mv app.apk blueshot.apk
-        -ls -al
+      run: |
+        cd build/app/outputs/flutter-apk/
+        mv app.apk blueshot.apk
+        ls -al
   #ios:
   #  runs-on: macOS-latest
   #  steps:
