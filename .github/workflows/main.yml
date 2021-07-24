@@ -28,7 +28,8 @@ jobs:
     - name: sign plz
       run: |
         printf "password\npassword\nflutter by\nvim\nole\nboston\nmassachusetts\nus\nyes" | keytool -genkey -v -keystore ~/upload-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
-        cd /home/runner/ | ls -al
+        cd /home/runner/
+        ls -al | grep -e "upload-keystore.jks"
     
     - name: rename apk
       run: |
