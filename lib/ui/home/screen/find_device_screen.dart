@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:treehousesble/ui/home/screen/device_screen.dart';
+import 'package:treehousesble/ui/home/screen/settings_screen.dart';
 import 'package:treehousesble/ui/home/widget/scan_result_tile.dart';
 import 'package:treehousesble/ui/home/widget/fab_bottom_app_bar.dart';
 
@@ -11,6 +12,7 @@ class FindDevicesScreen extends StatefulWidget {
 }
 
 class _FindDevicesScreenState extends State<FindDevicesScreen> {
+  int pageIndex = 0;
   var piAddress = <String>{"B8:27:EB", "DC:A6:32", "E4:5F:01",
                            "B8-27-EB", "DC-A6-32", "E4-5F-01",
                            "B827.EB", "DCA6.32", "E45F.01",
@@ -19,6 +21,67 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
                            "b827.eb", "dca6.32", "e45f.01"};
 
   var filter = true;
+
+  Widget pages(int index) {
+    switch(index) {
+      case 0:
+        return RefreshIndicator(
+          onRefresh: () =>
+              FlutterBlue.instance.startScan(timeout: Duration(seconds: 4)),
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                StreamBuilder<List<BluetoothDevice>>(
+                  stream: Stream.periodic(Duration(seconds: 2))
+                      .asyncMap((_) => FlutterBlue.instance.connectedDevices),
+                  initialData: [],
+                  builder: (c, snapshot) => Column(
+                    children: snapshot.data!
+                        .map((d) => ListTile(
+                      title: Text(d.name),
+                      subtitle: Text(d.id.toString()),
+                      trailing: StreamBuilder<BluetoothDeviceState>(
+                        stream: d.state,
+                        initialData: BluetoothDeviceState.disconnected,
+                        builder: (c, snapshot) {
+                          if (snapshot.data ==
+                              BluetoothDeviceState.connected) {
+                            return RaisedButton(
+                              child: Text('OPEN'),
+                              onPressed: () => Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          DeviceScreen(device: d))),
+                            );
+                          }
+                          return Text(snapshot.data.toString());
+                        },
+                      ),
+                    ))
+                        .toList(),
+                  ),
+                ),
+                StreamBuilder<List<ScanResult>>(
+                  stream: FlutterBlue.instance.scanResults,
+                  initialData: [],
+                  builder: (c, snapshot) => Column(
+                      children: getDeviceList(context,snapshot)
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      case 1:
+        return Container();
+      case 2:
+        return Container();
+      case 3:
+        return SettingsScreen();
+      default:
+        return Container();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,53 +98,7 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
           activeColor: Colors.blue[200],
         )],
       ),
-      body: RefreshIndicator(
-        onRefresh: () =>
-            FlutterBlue.instance.startScan(timeout: Duration(seconds: 4)),
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              StreamBuilder<List<BluetoothDevice>>(
-                stream: Stream.periodic(Duration(seconds: 2))
-                    .asyncMap((_) => FlutterBlue.instance.connectedDevices),
-                initialData: [],
-                builder: (c, snapshot) => Column(
-                  children: snapshot.data!
-                      .map((d) => ListTile(
-                    title: Text(d.name),
-                    subtitle: Text(d.id.toString()),
-                    trailing: StreamBuilder<BluetoothDeviceState>(
-                      stream: d.state,
-                      initialData: BluetoothDeviceState.disconnected,
-                      builder: (c, snapshot) {
-                        if (snapshot.data ==
-                            BluetoothDeviceState.connected) {
-                          return RaisedButton(
-                            child: Text('OPEN'),
-                            onPressed: () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        DeviceScreen(device: d))),
-                          );
-                        }
-                        return Text(snapshot.data.toString());
-                      },
-                    ),
-                  ))
-                      .toList(),
-                ),
-              ),
-              StreamBuilder<List<ScanResult>>(
-                stream: FlutterBlue.instance.scanResults,
-                initialData: [],
-                builder: (c, snapshot) => Column(
-                  children: getDeviceList(context,snapshot)
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      body: pages(pageIndex),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: StreamBuilder<bool>(
         stream: FlutterBlue.instance.isScanning,
@@ -113,7 +130,11 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
         selectedColor: Colors.white,
         centerItemText: '',
         backgroundColor: Colors.blue,
-        onTabSelected: (int value) {  },
+        onTabSelected: (int value) {
+          setState(() {
+            pageIndex = value;
+          });
+        },
     ),
     );
   }
