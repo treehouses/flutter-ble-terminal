@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:treehousesble/ui/home/screen/bluetooth_off_screen.dart';
 import 'package:treehousesble/ui/home/screen/device_screen.dart';
-import 'package:treehousesble/ui/home/screen/find_device_screen.dart';
+import 'package:treehousesble/ui/home/screen/dashboard_screen.dart';
 import 'package:treehousesble/ui/home/widget/adapter_state.dart';
 import 'package:treehousesble/ui/home/widget/characteristic_tile.dart';
-import 'package:treehousesble/ui/home/widget/descriptor_tiile.dart';
+import 'package:treehousesble/ui/home/widget/descriptor_tile.dart';
 import 'package:treehousesble/ui/home/widget/scan_result_tile.dart';
 import 'package:treehousesble/ui/home/widget/service_tile.dart';
 
