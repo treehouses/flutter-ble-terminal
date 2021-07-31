@@ -22,7 +22,7 @@ class ServiceTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text('Service'),
-            Text('0x${service.uuid.toString().toUpperCase().substring(4, 8)}',
+            Text('${service.uuid.toString()}',
                 style: Theme.of(context).textTheme.body1?.copyWith(
                     color: Theme.of(context).textTheme.caption?.color))
           ],
