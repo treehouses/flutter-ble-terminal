@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:treehousesble/ui/home/screen/text_size_settings_screen.dart';
 
 class UserCustomizationSettingsScreen extends StatefulWidget {
   @override
@@ -6,7 +7,6 @@ class UserCustomizationSettingsScreen extends StatefulWidget {
 }
 
 class _UserCustomizationSettingsScreenState extends State<UserCustomizationSettingsScreen> {
-  double textSize = 12;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,13 +47,10 @@ class _UserCustomizationSettingsScreenState extends State<UserCustomizationSetti
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
                     child: Column(
                         children: <Widget> [
-                          Slider(
-                              value: textSize,
-                              min: 10,
-                              max: 30,
-                              divisions: 21,
-                              label: textSize.round().toString(),
-                              onChanged: (val) => setState(() => textSize = val)
+                          ListTile(
+                              title: Text("Text Size"),
+                              trailing: Icon(Icons.keyboard_arrow_right),
+                              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => TextSizeSettingsScreen()))
                           )
                         ]
                     )
