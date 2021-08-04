@@ -24,7 +24,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               title: Text("General"),
                               leading: Icon(Icons.settings),
                               trailing: Icon(Icons.keyboard_arrow_right),
-                              onTap: () {}
+                              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => GeneralSettingsScreen()))
                           )
                         ]
                     )

@@ -8,7 +8,7 @@ class GeneralSettingsScreen extends StatefulWidget {
 class _GeneralSettingsScreenState extends State<GeneralSettingsScreen> {
   @override
   Widget build(BuildContext context) {
-    bool splashScreen = false;
+    bool splashScreen = false, darkMode = false, terminalAutoComplete = false, bluetooth = false;
     return Scaffold(
         body: SingleChildScrollView(
             child: Column(
@@ -20,17 +20,73 @@ class _GeneralSettingsScreenState extends State<GeneralSettingsScreen> {
                         children: <Widget> [
                           SwitchListTile(
                             title: Text("Splash Screen"),
-                            subtitle: Text("Toggle the Start Logo Screen ON or OFF"),
                             value: splashScreen,
+                            secondary: Icon(Icons.palette),
                             onChanged: (val) {
                               setState(() {
                                 splashScreen = val;
                               });
                             },
-                          )
+                          ),
+                          SwitchListTile(
+                            title: Text("Terminal Autocomplete"),
+                            value: terminalAutoComplete,
+                            secondary: Icon(Icons.monitor),
+                            onChanged: (val) {
+                              setState(() {
+                                terminalAutoComplete = val;
+                              });
+                            },
+                          ),
+                          SwitchListTile(
+                            title: Text("Dark Mode"),
+                            value: darkMode,
+                            secondary: Icon(Icons.dark_mode),
+                            onChanged: (val) {
+                              setState(() {
+                                darkMode = val;
+                              });
+                            },
+                          ),
+                          ListTile(
+                              title: Text("Reactivate Tutorials"),
+                              leading: Icon(Icons.ondemand_video)
+                          ),
                         ]
                     )
                 ),
+                Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+                  child: Column(
+                    children: <Widget> [
+                      ListTile(
+                          title: Text("Clear Services Cache"),
+                          leading: Icon(Icons.cached)
+                      ),
+                      SwitchListTile(
+                        title: Text("Reconnect Bluetooth Automatically"),
+                        value: bluetooth,
+                        secondary: Icon(Icons.bluetooth),
+                        onChanged: (val) {
+                          setState(() {
+                            bluetooth = val;
+                          });
+                        },
+                      ),
+                    ]
+                  )
+                ),
+                Card(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+                    child: Column(
+                        children: <Widget> [
+                          ListTile(
+                              title: Text("LED Pattern"),
+                              leading: Icon(Icons.lightbulb)
+                          )
+                        ]
+                    )
+                )
               ],
             )
         )
