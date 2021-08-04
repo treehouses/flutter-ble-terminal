@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:treehousesble/ui/home/screen/user_customization_settings_screen.dart';
 import 'package:treehousesble/ui/home/screen/general_settings_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -54,7 +56,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           ListTile(
                               title: Text("User Customization"),
                               leading: Icon(Icons.format_paint),
-                              trailing: Icon(Icons.keyboard_arrow_right)
+                              trailing: Icon(Icons.keyboard_arrow_right),
+                              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => UserCustomizationSettingsScreen()))
                           )
                         ]
                     )
@@ -65,15 +68,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         children: <Widget> [
                           ListTile(
                               title: Text("Contributors"),
-                              leading: Icon(Icons.people)
+                              leading: Icon(Icons.people),
+                              onTap: () => launch("https://github.com/treehouses/flutter-ble-terminal/graphs/contributors")
                           ),
                           ListTile(
-                              title: Text("Help"),
-                              leading: Icon(Icons.help)
+                              title: Text("About"),
+                              leading: Icon(Icons.info),
+                              onTap: () => launch("https://treehouses.io/#!index.md")
                           ),
                           ListTile(
                               title: Text("Report an Issue"),
-                              leading: Icon(Icons.warning)
+                              leading: Icon(Icons.report_problem),
+                              onTap: () => launch("https://github.com/treehouses/flutter-ble-terminal/issues")
                           )
                         ]
                     )
