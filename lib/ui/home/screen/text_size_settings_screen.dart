@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class TextSizeSettingsScreen extends StatefulWidget {
   @override
@@ -7,6 +8,23 @@ class TextSizeSettingsScreen extends StatefulWidget {
 
 class _TextSizeSettingsScreenState extends State<TextSizeSettingsScreen> {
   double textSize = 12;
+
+  @override
+  void initState() {
+    super.initState();
+    loadTextSize().then((val) => textSize = val);
+  }
+
+  Future<double> loadTextSize() async {
+    final prefs = await SharedPreferences.getInstance();
+    return (prefs.getDouble('textSize') ?? 12);
+  }
+
+  void setTextSize(double textSize) async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() async => await prefs.setDouble('textSize', textSize));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,6 +33,7 @@ class _TextSizeSettingsScreenState extends State<TextSizeSettingsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Card(
+                      margin: EdgeInsets.fromLTRB(32, 0, 32, 0),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
                       child: Column(
                           children: <Widget> [
@@ -45,6 +64,13 @@ class _TextSizeSettingsScreenState extends State<TextSizeSettingsScreen> {
                                 max: 25,
                                 divisions: 4,
                                 onChanged: (val) => setState(() => textSize = val)
+                            ),
+                            OutlinedButton(
+                              child: Text("CONFIRM"),
+                              onPressed: () {
+                                setTextSize(textSize);
+                                Navigator.pop(context);
+                              },
                             )
                           ]
                       )
