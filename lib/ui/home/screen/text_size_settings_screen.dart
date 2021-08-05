@@ -12,7 +12,7 @@ class _TextSizeSettingsScreenState extends State<TextSizeSettingsScreen> {
   @override
   void initState() {
     super.initState();
-    loadTextSize().then((val) => textSize = val);
+    loadTextSize().whenComplete(() => setState(() {}));
   }
 
   Future<double> loadTextSize() async {
