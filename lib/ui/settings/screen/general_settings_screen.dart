@@ -1,38 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:treehousesble/ui/settings/widget/binary_alert_dialog.dart';
 
 class GeneralSettingsScreen extends StatefulWidget {
   @override
   State<GeneralSettingsScreen> createState() => _GeneralSettingsScreenState();
-}
-
-void showAlertDialog(BuildContext context, String title, String content) {
-  // set up the buttons
-  Widget noButton = TextButton(
-      child: Text("No"),
-      onPressed:  () => Navigator.of(context).pop()
-  );
-  Widget yesButton = TextButton(
-      child: Text("Yes"),
-      onPressed:  () => Navigator.of(context).pop()
-  );
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title: Text(title),
-    content: Text(content),
-    actions: [
-      noButton,
-      yesButton,
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
 }
 
 class _GeneralSettingsScreenState extends State<GeneralSettingsScreen> {
@@ -81,7 +52,7 @@ class _GeneralSettingsScreenState extends State<GeneralSettingsScreen> {
                           ListTile(
                               title: Text("Reactivate Tutorials"),
                               leading: Icon(Icons.ondemand_video),
-                              onTap: () => showAlertDialog(context, "Reactivate Tutorials", "Are you sure you want to reactivate the tutorials?")
+                              onTap: () => BinaryAlertDialog.show(context, "Reactivate Tutorials", "Are you sure you want to reactivate the tutorials?")
                           ),
                         ]
                     )
@@ -93,7 +64,7 @@ class _GeneralSettingsScreenState extends State<GeneralSettingsScreen> {
                       ListTile(
                           title: Text("Clear Services Cache"),
                           leading: Icon(Icons.cached),
-                          onTap: () => showAlertDialog(context, "Clear Services Cache", "Are you sure you want to clear the services' cache?")
+                          onTap: () => BinaryAlertDialog.show(context, "Clear Services Cache", "Are you sure you want to clear the services' cache?")
                       ),
                       SwitchListTile(
                         title: Text("Reconnect Bluetooth Automatically"),

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:treehousesble/ui/home/screen/user_customization_settings_screen.dart';
-import 'package:treehousesble/ui/home/screen/general_settings_screen.dart';
+import 'package:treehousesble/ui/settings/screen/user_customization_settings_screen.dart';
+import 'package:treehousesble/ui/settings/screen/general_settings_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
