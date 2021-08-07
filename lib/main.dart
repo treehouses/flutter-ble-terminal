@@ -12,6 +12,7 @@ import 'package:treehousesble/ui/home/widget/characteristic_tile.dart';
 import 'package:treehousesble/ui/home/widget/descriptor_tile.dart';
 import 'package:treehousesble/ui/home/widget/scan_result_tile.dart';
 import 'package:treehousesble/ui/home/widget/service_tile.dart';
+import 'package:treehousesble/ui/home/screen/terminal_screen.dart';
 
 void main() {
   runApp(FlutterBlueApp());
@@ -26,11 +27,12 @@ class FlutterBlueApp extends StatelessWidget {
           stream: FlutterBlue.instance.state,
           initialData: BluetoothState.unknown,
           builder: (c, snapshot) {
-            final state = snapshot.data;
-            if (state == BluetoothState.on) {
-              return FindDevicesScreen();
-            }
-            return BluetoothOffScreen(state: state);
+            // final state = snapshot.data;
+            // if (state == BluetoothState.on) {
+            //   return FindDevicesScreen();
+            // }
+            // return BluetoothOffScreen(state: state);
+            return TerminalScreen();
           }),
     );
   }
