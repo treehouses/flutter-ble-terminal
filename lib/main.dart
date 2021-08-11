@@ -27,12 +27,11 @@ class FlutterBlueApp extends StatelessWidget {
           stream: FlutterBlue.instance.state,
           initialData: BluetoothState.unknown,
           builder: (c, snapshot) {
-            // final state = snapshot.data;
-            // if (state == BluetoothState.on) {
-            //   return FindDevicesScreen();
-            // }
-            // return BluetoothOffScreen(state: state);
-            return TerminalScreen();
+            final state = snapshot.data;
+            if (state == BluetoothState.on) {
+              return FindDevicesScreen();
+            }
+            return BluetoothOffScreen(state: state);
           }),
     );
   }
