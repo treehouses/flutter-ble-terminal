@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:treehousesble/ui/widgets/binary_alert_dialog.dart';
 
 class NetWorkScreen extends StatefulWidget {
   @override
@@ -124,22 +125,26 @@ class _NetWorkScreenState extends State<NetWorkScreen> {
                     children: <Widget> [
                       ExpansionTile(
                           title: Text("Commands"),
-                          trailing: Icon(Icons.keyboard_arrow_right),
                           children: [
                             ListTile(
                                 title: Text("Update Network Mode")
                             ),
                             ListTile(
-                                title: Text("Reboot Raspberry Pi")
+                                title: Text("Reboot Raspberry Pi"),
+                                onTap: () => BinaryAlertDialog.show(context, "Reboot Device", "Are you sure you want to reboot your device?")
                             ),
                             ListTile(
-                                title: Text("Reset Network")
+                                title: Text("Reset Network"),
+                                onTap: () => BinaryAlertDialog.show(context, "Reset Network", "Are you sure you want to reset the network to default?")
                             ),
                             ListTile(
                                 title: Text("Speed Test")
                             ),
                             ListTile(
                                 title: Text("Reverse Lookup")
+                            ),
+                            ListTile(
+                                title: Text("Find Devices on Your Network")
                             ),
                           ],
                       )
