@@ -11,7 +11,7 @@ class NetWorkCard extends StatefulWidget {
 }
 
 class _NetWorkCard extends State<NetWorkCard> {
-  int networkMode = 0;
+  static int networkMode = 0;
   @override
   Widget build(BuildContext context) {
     return InkWell(
