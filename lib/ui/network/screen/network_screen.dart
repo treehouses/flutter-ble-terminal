@@ -9,6 +9,7 @@ class NetWorkScreen extends StatefulWidget {
 
 class _NetWorkScreenState extends State<NetWorkScreen> {
   static int networkMode = 0;
+  void onTap (cardNum) => setState(() => networkMode = cardNum);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,16 +20,16 @@ class _NetWorkScreenState extends State<NetWorkScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                NetWorkCard(1, Colors.redAccent, Icons.wifi, "Wifi"),
-                NetWorkCard(2, Colors.lightBlueAccent, Icons.speaker_phone, "Hotspot")
+                NetWorkCard(1, Colors.redAccent, Icons.wifi, "Wifi", onTap, networkMode),
+                NetWorkCard(2, Colors.lightBlueAccent, Icons.speaker_phone, "Hotspot", onTap, networkMode)
               ],
             ),
             SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                NetWorkCard(3, Colors.pinkAccent, Icons.share, "Bridge"),
-                NetWorkCard(4, Colors.amber, Icons.cable, "Ethernet"),
+                NetWorkCard(3, Colors.pinkAccent, Icons.share, "Bridge", onTap, networkMode),
+                NetWorkCard(4, Colors.amber, Icons.cable, "Ethernet", onTap, networkMode),
               ],
             ),
             SizedBox(height: 30),

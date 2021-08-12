@@ -5,20 +5,21 @@ class NetWorkCard extends StatefulWidget {
   final Color color;
   final IconData icon;
   final String type;
-  NetWorkCard(this.cardNum, this.color, this.icon, this.type);
+  final Function setNetworkMode;
+  final int networkMode;
+  NetWorkCard(this.cardNum, this.color, this.icon, this.type, this.setNetworkMode, this.networkMode);
   @override
   State<NetWorkCard> createState() => _NetWorkCard();
 }
 
 class _NetWorkCard extends State<NetWorkCard> {
-  static int networkMode = 0;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => setState(() => networkMode = widget.cardNum),
+      onTap: () => widget.setNetworkMode(widget.cardNum),
       child: Card(
-          elevation: (networkMode == widget.cardNum ? 50: 0),
-          shadowColor: (networkMode == widget.cardNum ? widget.color: null),
+          elevation: (widget.networkMode == widget.cardNum ? 50: 0),
+          shadowColor: (widget.networkMode == widget.cardNum ? widget.color: null),
           color: widget.color,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
