@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 
@@ -11,11 +13,25 @@ class _TerminalScreenState extends State<TerminalScreen> {
   TextEditingController textController1 = new TextEditingController();
   TextEditingController textController2 = new TextEditingController();
 
+  /*
+  Functions taken from device_screen for Terminal functionality, functionality currently not impletemented, just view
+   */
+  // List<int> _sendCommand(String command) {
+  //   return utf8.encode(command);
+  // }
+  //
+  // Future<void> _buildServiceTiles(BluetoothCharacteristic c, String command) async {
+  //   await c.write(_sendCommand(command), withoutResponse: true);
+  //   List<int> response =  await c.read();
+  //   setState(() {
+  //     responseString = utf8.decode(response);
+  //   });
+  //   print(utf8.decode(response));
+  // }
+
   @override
   void initState(){
     super.initState();
-    textController1 = TextEditingController();
-    textController2 = TextEditingController();
   }
 
   @override
@@ -42,16 +58,6 @@ class _TerminalScreenState extends State<TerminalScreen> {
                         obscureText: false,
                       decoration: InputDecoration(
                         hintText: 'Bluetooth',
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width:1,
-                          ),
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(4.0),
-                            topRight: Radius.circular(4.0),
-                          ),
-                        ),
                       ),
                     ),
                   ),
@@ -80,26 +86,6 @@ class _TerminalScreenState extends State<TerminalScreen> {
                     obscureText: false,
                     decoration: InputDecoration(
                       hintText: 'Enter Commands',
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 1,
-                        ),
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(4.0),
-                          topRight: Radius.circular(4.0),
-                        ),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 1,
-                        ),
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(4.0),
-                          topRight: Radius.circular(4.0),
-                        ),
-                      ),
                     ),
                   ),
                 ),
