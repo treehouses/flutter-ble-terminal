@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:treehousesble/ui/settings/screen/text_size_settings_screen.dart';
-import 'package:treehousesble/ui/settings/widget/binary_alert_dialog.dart';
+import 'package:treehousesble/ui/widgets/binary_alert_dialog.dart';
 
 class UserCustomizationSettingsScreen extends StatefulWidget {
   @override
