@@ -1,24 +1,22 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 
-import 'descriptor_tiile.dart';
+import 'descriptor_tile.dart';
 
 class CharacteristicTile extends StatelessWidget {
   final BluetoothCharacteristic characteristic;
   final List<DescriptorTile> descriptorTiles;
   final VoidCallback? onReadPressed;
-  final VoidCallback? onWritePressed;
+  final Function(String)? onWritePressed;
   final VoidCallback? onNotificationPressed;
+  TextEditingController inputController = new TextEditingController();
 
-  const CharacteristicTile(
-      {Key? key,
-        required this.characteristic,
-        required this.descriptorTiles,
-        this.onReadPressed,
-        this.onWritePressed,
-        this.onNotificationPressed})
+  CharacteristicTile({Key? key,
+    required this.characteristic,
+    required this.descriptorTiles,
+    this.onReadPressed,
+    this.onWritePressed,
+    this.onNotificationPressed})
       : super(key: key);
 
   @override
@@ -28,6 +26,10 @@ class CharacteristicTile extends StatelessWidget {
       initialData: characteristic.lastValue,
       builder: (c, snapshot) {
         final value = snapshot.data;
+        print(characteristic.serviceUuid.toString());
+        // if(characteristic.serviceUuid.toString() != "6e400001-b5a3-f393-e0a9-e50e24dcca9e"){
+        //
+        // }
         return ExpansionTile(
           title: ListTile(
             title: Column(
@@ -36,12 +38,34 @@ class CharacteristicTile extends StatelessWidget {
               children: <Widget>[
                 Text('Characteristic'),
                 Text(
-                    '0x${characteristic.uuid.toString().toUpperCase().substring(4, 8)}',
-                    style: Theme.of(context).textTheme.body1?.copyWith(
-                        color: Theme.of(context).textTheme.caption?.color))
+                    '${characteristic.serviceUuid.toString().toUpperCase()}',
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .body1
+                        ?.copyWith(
+                        color: Theme
+                            .of(context)
+                            .textTheme
+                            .caption
+                            ?.color))
               ],
             ),
-            subtitle: Text(value.toString()),
+            subtitle: Row(children: [
+              Expanded(
+                flex: 1, child: TextField(controller: inputController,),),
+              IconButton(
+                icon: Icon(Icons.send,
+                    color: Theme
+                        .of(context)
+                        .iconTheme
+                        .color
+                        ?.withOpacity(0.5)),
+                onPressed: (){
+                  onWritePressed!(inputController.text);
+                },
+              ),
+            ],),
             contentPadding: EdgeInsets.all(0.0),
           ),
           trailing: Row(
@@ -50,21 +74,35 @@ class CharacteristicTile extends StatelessWidget {
               IconButton(
                 icon: Icon(
                   Icons.file_download,
-                  color: Theme.of(context).iconTheme.color?.withOpacity(0.5),
+                  color: Theme
+                      .of(context)
+                      .iconTheme
+                      .color
+                      ?.withOpacity(0.5),
                 ),
                 onPressed: onReadPressed,
               ),
               IconButton(
                 icon: Icon(Icons.file_upload,
-                    color: Theme.of(context).iconTheme.color?.withOpacity(0.5)),
-                onPressed: onWritePressed,
+                    color: Theme
+                        .of(context)
+                        .iconTheme
+                        .color
+                        ?.withOpacity(0.5)),
+                onPressed: (){
+                  onWritePressed!("treeehouses version");
+                },
               ),
               IconButton(
                 icon: Icon(
                     characteristic.isNotifying
                         ? Icons.sync_disabled
                         : Icons.sync,
-                    color: Theme.of(context).iconTheme.color?.withOpacity(0.5)),
+                    color: Theme
+                        .of(context)
+                        .iconTheme
+                        .color
+                        ?.withOpacity(0.5)),
                 onPressed: onNotificationPressed,
               )
             ],
