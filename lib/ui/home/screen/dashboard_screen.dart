@@ -12,14 +12,45 @@ class FindDevicesScreen extends StatefulWidget {
 }
 
 class _FindDevicesScreenState extends State<FindDevicesScreen> {
+  int pageIndex = 0;
+
+  Widget pages(int index) {
+    switch(index) {
+      case 0:
+        return SearchPage();
+      case 1:
+        return Container();
+      case 2:
+        return Container();
+      case 3:
+        return Container();
+      default:
+        return Container();
+    }
+  }
+
+  String pageName(int index) {
+    switch(index) {
+      case 0:
+        return "Home";
+      case 1:
+        return "Terminal";
+      case 2:
+        return "Network";
+      case 3:
+        return "Settings";
+      default:
+        return "Default";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text(pageName(pageIndex)),
       ),
-      body: SearchPage() ,
+      body: pages(pageIndex),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: StreamBuilder<bool>(
         stream: FlutterBlue.instance.isScanning,
@@ -51,7 +82,11 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
         selectedColor: Colors.white,
         centerItemText: '',
         backgroundColor: Colors.blue,
-        onTabSelected: (int value) {  },
+        onTabSelected: (int value) {
+          setState(() {
+            pageIndex = value;
+          });
+        }
     ),
     );
   }
