@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:treehousesble/ui/widgets/gradient_card.dart';
 
 class NetWorkCard extends StatefulWidget {
   final int cardNum;
-  final Color color;
+  final Color primaryColor;
+  final Color secondaryColor;
   final IconData icon;
   final String type;
   final Function setNetworkMode;
   final int networkMode;
-  NetWorkCard(this.cardNum, this.color, this.icon, this.type, this.setNetworkMode, this.networkMode);
+  NetWorkCard(this.cardNum, this.primaryColor, this.secondaryColor, this.icon, this.type, this.setNetworkMode, this.networkMode);
   @override
   State<NetWorkCard> createState() => _NetWorkCard();
 }
@@ -15,28 +17,13 @@ class NetWorkCard extends StatefulWidget {
 class _NetWorkCard extends State<NetWorkCard> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => widget.setNetworkMode(widget.cardNum),
-      child: Card(
-          elevation: (widget.networkMode == widget.cardNum ? 50: 0),
-          shadowColor: (widget.networkMode == widget.cardNum ? widget.color: null),
-          color: widget.color,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: SizedBox(
-              width: 125,
-              height: 125,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(widget.icon, color: Colors.white, size: 50),
-                  Text(widget.type, style: TextStyle(fontSize: 20, color: Colors.white))
-                ],
-              )
-          )
-      )
+    return GradientCard(
+        widget.primaryColor,
+        widget.secondaryColor,
+        widget.icon,
+        widget.type,
+        widget.networkMode == widget.cardNum,
+        () => widget.setNetworkMode(widget.cardNum)
     );
   }
 }
