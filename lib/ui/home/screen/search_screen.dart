@@ -133,6 +133,7 @@ class _SearchPageState extends State<SearchPage> {
               showProgress = true;
             });
             r.device.connect().then((value) {
+              print("CONNECTIION VALUE " );
               setState(() {
                 showProgress = false;
               });
@@ -157,11 +158,24 @@ class _SearchPageState extends State<SearchPage> {
         if (r.device.id.toString().startsWith(element)) {
           list.add(ScanResultTile(
             result: r,
-            onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) {
-              r.device.connect();
-              return DeviceScreen(device: r.device);
-            })),
+            onTap: () {
+              setState(() {
+                showProgress = true;
+              });
+              r.device.connect().then((value) {
+                print("CONNECTIION VALUE " );
+                setState(() {
+                  showProgress = false;
+                });
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                  return DeviceScreen(device: r.device);
+                }));
+              }).catchError((err){
+                setState(() {
+                  showProgress = false;
+                });
+              });
+            },
           ));
         }
       });
