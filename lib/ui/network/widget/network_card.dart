@@ -9,7 +9,8 @@ class NetWorkCard extends StatefulWidget {
   final String type;
   final Function setNetworkMode;
   final int networkMode;
-  NetWorkCard(this.cardNum, this.primaryColor, this.secondaryColor, this.icon, this.type, this.setNetworkMode, this.networkMode);
+  final AnimationController controller;
+  NetWorkCard(this.cardNum, this.primaryColor, this.secondaryColor, this.icon, this.type, this.setNetworkMode, this.networkMode, this.controller);
   @override
   State<NetWorkCard> createState() => _NetWorkCard();
 }
@@ -17,13 +18,19 @@ class NetWorkCard extends StatefulWidget {
 class _NetWorkCard extends State<NetWorkCard> {
   @override
   Widget build(BuildContext context) {
-    return GradientCard(
-        widget.primaryColor,
-        widget.secondaryColor,
-        widget.icon,
-        widget.type,
-        widget.networkMode == widget.cardNum,
-        () => widget.setNetworkMode(widget.cardNum)
+    return SlideTransition(
+      position: Tween<Offset>(
+        begin: Offset(-1, 0),
+        end: Offset.zero
+      ).animate(widget.controller),
+      child: GradientCard(
+          widget.primaryColor,
+          widget.secondaryColor,
+          widget.icon,
+          widget.type,
+          widget.networkMode == widget.cardNum,
+          () => widget.setNetworkMode(widget.cardNum)
+      ),
     );
   }
 }
