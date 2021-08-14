@@ -5,7 +5,7 @@ import 'package:treehousesble/ui/home/screen/search_screen.dart';
 import 'package:treehousesble/ui/home/screen/device_screen.dart';
 import 'package:treehousesble/ui/home/widget/scan_result_tile.dart';
 import 'package:treehousesble/ui/home/widget/fab_bottom_app_bar.dart';
-import 'package:treehousesble/ui/home/screen/terminal_screen.dart';
+import 'package:treehousesble/ui/terminal/screen/terminal_screen.dart';
 
 class FindDevicesScreen extends StatefulWidget {
   @override

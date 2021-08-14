@@ -12,7 +12,7 @@ import 'package:treehousesble/ui/home/widget/characteristic_tile.dart';
 import 'package:treehousesble/ui/home/widget/descriptor_tile.dart';
 import 'package:treehousesble/ui/home/widget/scan_result_tile.dart';
 import 'package:treehousesble/ui/home/widget/service_tile.dart';
-import 'package:treehousesble/ui/home/screen/terminal_screen.dart';
+import 'package:treehousesble/ui/terminal/screen/terminal_screen.dart';
 
 void main() {
   runApp(FlutterBlueApp());
