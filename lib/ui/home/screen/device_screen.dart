@@ -76,6 +76,12 @@ class _DeviceScreenState extends State<DeviceScreen> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    widget.device.discoverServices();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

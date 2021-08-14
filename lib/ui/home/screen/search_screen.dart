@@ -163,7 +163,6 @@ class _SearchPageState extends State<SearchPage> {
                 showProgress = true;
               });
               r.device.connect().then((value) {
-                print("CONNECTIION VALUE " );
                 setState(() {
                   showProgress = false;
                 });
