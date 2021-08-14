@@ -3,14 +3,13 @@ import 'package:treehousesble/ui/widgets/gradient_card.dart';
 
 class NetWorkCard extends StatefulWidget {
   final int cardNum;
-  final Color primaryColor;
-  final Color secondaryColor;
+  final List<Color> colors;
   final IconData icon;
   final String type;
   final Function setNetworkMode;
   final int networkMode;
   final AnimationController controller;
-  NetWorkCard(this.cardNum, this.primaryColor, this.secondaryColor, this.icon, this.type, this.setNetworkMode, this.networkMode, this.controller);
+  NetWorkCard(this.cardNum, this.colors, this.icon, this.type, this.setNetworkMode, this.networkMode, this.controller);
   @override
   State<NetWorkCard> createState() => _NetWorkCard();
 }
@@ -24,8 +23,8 @@ class _NetWorkCard extends State<NetWorkCard> {
         end: Offset.zero
       ).animate(widget.controller),
       child: GradientCard(
-          widget.primaryColor,
-          widget.secondaryColor,
+          widget.colors,
+          [140, 140],
           widget.icon,
           widget.type,
           widget.networkMode == widget.cardNum,

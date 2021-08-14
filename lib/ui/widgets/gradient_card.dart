@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class GradientCard extends StatefulWidget {
-  final Color primaryColor;
-  final Color secondaryColor;
+  final List<Color> colors;
+  final List<double> sizes;
   final IconData icon;
   final String type;
   final bool highlighted;
   final Function? func;
-  GradientCard(this.primaryColor, this.secondaryColor, this.icon, this.type, this.highlighted, [this.func]);
+  GradientCard(this.colors, this.sizes, this.icon, this.type, this.highlighted, [this.func]);
   @override
   State<GradientCard> createState() => _GradientCard();
 }
@@ -19,13 +19,13 @@ class _GradientCard extends State<GradientCard> {
         onTap: () => widget.func!(),
         borderRadius: BorderRadius.circular(20),
         child: Container(
-          width: 125,
-          height: 125,
+          width: widget.sizes[0],
+          height: widget.sizes[1],
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                widget.primaryColor,
-                widget.secondaryColor
+                widget.colors[0],
+                widget.colors[1]
               ]
             ),
             borderRadius: BorderRadius.circular(20),

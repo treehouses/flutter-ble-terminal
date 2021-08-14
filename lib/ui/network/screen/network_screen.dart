@@ -35,16 +35,16 @@ class _NetWorkScreenState extends State<NetWorkScreen> with SingleTickerProvider
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                NetWorkCard(1, Color(0xFFffdd00), Color(0xFFfbb034), Icons.wifi, "Wifi", onTap, networkMode, animationController),
-                NetWorkCard(2, Color(0xFF2193b0), Color(0xFF6dd5ed),Icons.speaker_phone, "Hotspot", onTap, networkMode, animationController)
+                NetWorkCard(1, [Color(0xFFffdd00), Color(0xFFfbb034)], Icons.wifi, "Wifi", onTap, networkMode, animationController),
+                NetWorkCard(2, [Color(0xFF2193b0), Color(0xFF6dd5ed)],Icons.speaker_phone, "Hotspot", onTap, networkMode, animationController)
               ],
             ),
             SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                NetWorkCard(3, Color(0xFFEB3349), Color(0xFFF45C43), Icons.share, "Bridge", onTap, networkMode, animationController),
-                NetWorkCard(4, Color(0xFF02aab0), Color(0xFF00cdac), Icons.cable, "Ethernet", onTap, networkMode, animationController),
+                NetWorkCard(3, [Color(0xFFEB3349), Color(0xFFF45C43)], Icons.share, "Bridge", onTap, networkMode, animationController),
+                NetWorkCard(4, [Color(0xFF02aab0), Color(0xFF00cdac)], Icons.cable, "Ethernet", onTap, networkMode, animationController),
               ],
             ),
             SizedBox(height: 30),
