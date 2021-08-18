@@ -24,10 +24,10 @@ class BinaryAlertDialog {
     );
 
     showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return alert;
-        },
-      );
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 }
