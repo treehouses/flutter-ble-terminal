@@ -67,7 +67,7 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
         color: Colors.black54,
         selectedColor: Colors.white,
         centerItemText: '',
-        backgroundColor: Colors.blue,
+        backgroundColor: Theme.of(context).primaryColor,
         onTabSelected: (int value) {
           setState(() {
             pageIndex = value;
