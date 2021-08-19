@@ -174,6 +174,9 @@ class _DeviceScreenState extends State<DeviceScreen> {
               stream: widget.device.services,
               initialData: [],
               builder: (c, snapshot) {
+                if(snapshot.data == null){
+                  return Container();
+                }
                 return Column(
                   children: _buildServiceTiles(snapshot.data!),
                 );
