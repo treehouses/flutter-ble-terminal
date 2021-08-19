@@ -5,6 +5,7 @@ import 'package:treehousesble/ui/home/screen/search_screen.dart';
 import 'package:treehousesble/ui/home/screen/device_screen.dart';
 import 'package:treehousesble/ui/home/widget/scan_result_tile.dart';
 import 'package:treehousesble/ui/home/widget/fab_bottom_app_bar.dart';
+import 'package:treehousesble/ui/network/screen/network_screen.dart';
 import 'package:treehousesble/ui/settings/screen/settings_screen.dart';
 
 class FindDevicesScreen extends StatefulWidget {
@@ -22,7 +23,7 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
       case 1:
         return Container();
       case 2:
-        return Container();
+        return NetWorkScreen();
       case 3:
         return SettingsScreen();
       default:
@@ -30,11 +31,27 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
     }
   }
 
+  String pageName(int index) {
+    switch(index) {
+      case 0:
+        return "Home";
+      case 1:
+        return "Terminal";
+      case 2:
+        return "Network";
+      case 3:
+        return "Settings";
+      default:
+        return "Default";
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text(pageName(pageIndex)),
       ),
       body: pages(pageIndex),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -72,7 +89,7 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
           setState(() {
             pageIndex = value;
           });
-        },
+        }
     ),
     );
   }
