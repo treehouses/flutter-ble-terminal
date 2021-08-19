@@ -7,7 +7,7 @@ class GradientCard extends StatefulWidget {
   final String type;
   final bool highlighted;
   final Function? func;
-  GradientCard(this.colors, this.sizes, this.icon, this.type, this.highlighted, [this.func]);
+  GradientCard(this.colors, this.sizes, this.icon, this.type, [this.highlighted = false, this.func]);
   @override
   State<GradientCard> createState() => _GradientCard();
 }
