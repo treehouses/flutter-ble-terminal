@@ -11,6 +11,7 @@ class _GeneralSettingsScreenState extends State<GeneralSettingsScreen> {
   Widget build(BuildContext context) {
     bool splashScreen = false, darkMode = false, terminalAutoComplete = false, bluetooth = false;
     return Scaffold(
+      appBar: AppBar(title: Text("General Settings"),),
         body: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

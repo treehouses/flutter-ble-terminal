@@ -23,9 +23,9 @@ class CustomTheme {
     shadowColor: Colors.black,
     bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.white),
     appBarTheme: AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blue,
       iconTheme: IconThemeData(
-        color: Colors.blue,
+        color: Colors.white,
       ),
       brightness: Brightness.light,
       systemOverlayStyle: SystemUiOverlayStyle.light,
@@ -54,12 +54,12 @@ class CustomTheme {
         fontSize: 14,
         fontWeight: FontWeight.w300,
       ),
-      caption: TextStyle(color: lightTextColor, fontSize: 8),
+      caption: TextStyle(color: lightTextColor, fontSize: 14),
       subtitle2: TextStyle(color: lightTextColor, fontSize: 12),
-      subtitle1: TextStyle(color: lightTextColor, fontSize: 10),
+      subtitle1: TextStyle(color: lightTextColor, fontSize: 14),
       button: TextStyle(color: lightTextColor, fontSize: 12),
-      bodyText1: TextStyle(fontSize: 12, color: lightTextColor),
-      bodyText2: TextStyle(fontSize: 10, color: lightTextColor),
+      bodyText1: TextStyle(fontSize: 14, color: lightTextColor),
+      bodyText2: TextStyle(fontSize: 12, color: lightTextColor),
     ),
   );
 

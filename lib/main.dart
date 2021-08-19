@@ -22,10 +22,9 @@ class FlutterBlueApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: CustomTheme.lightTheme(
-      ),
-      darkTheme: CustomTheme.darkTheme(
-      ),
+      theme: CustomTheme.lightTheme(),
+      darkTheme: CustomTheme.darkTheme(),
+      themeMode: ThemeMode.light,
       home: StreamBuilder<BluetoothState>(
           stream: FlutterBlue.instance.state,
           initialData: BluetoothState.unknown,
