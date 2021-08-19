@@ -42,7 +42,7 @@ class _GradientCard extends State<GradientCard> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(widget.icon, color: Colors.white, size: 50),
+              Icon(widget.icon, color: Colors.white, size: widget.sizes[1]/2.8),
               Text(widget.type, style: TextStyle(fontSize: 20, color: Colors.white))
             ],
           )
