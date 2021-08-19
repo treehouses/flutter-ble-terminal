@@ -7,6 +7,7 @@ class GradientCard extends StatefulWidget {
   final String type;
   final bool highlighted;
   final Function? func;
+  //Colors takes two colors for gradient, sizes takes two numbers: width and height
   GradientCard(this.colors, this.sizes, this.icon, this.type, [this.highlighted = false, this.func]);
   @override
   State<GradientCard> createState() => _GradientCard();

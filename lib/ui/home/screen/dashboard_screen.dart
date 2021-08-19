@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:treehousesble/ui/home/screen/search_screen.dart';
 import 'package:treehousesble/ui/home/screen/device_screen.dart';
-import 'package:treehousesble/ui/home/screen/services_screen.dart';
+import 'package:treehousesble/ui/home/screen/home_screen.dart';
 import 'package:treehousesble/ui/home/widget/scan_result_tile.dart';
 import 'package:treehousesble/ui/home/widget/fab_bottom_app_bar.dart';
 import 'package:treehousesble/ui/network/screen/network_screen.dart';
@@ -20,8 +20,9 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
   Widget pages(int index) {
     switch(index) {
       case 0:
-        //return SearchPage();
-        return ServicesScreen();
+        return SearchPage();
+        //TODO: Link search page to home screen after connection
+        //return HomeScreen();
       case 1:
         return Container();
       case 2:

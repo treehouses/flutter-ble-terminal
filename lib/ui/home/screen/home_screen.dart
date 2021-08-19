@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:treehousesble/ui/widgets/gradient_card.dart';
 
-class ServicesScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  State<ServicesScreen> createState() => _ServicesScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _ServicesScreenState extends State<ServicesScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   static const double padding = 15;
   @override
   Widget build(BuildContext context) {
