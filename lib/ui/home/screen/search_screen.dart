@@ -33,21 +33,24 @@ class _SearchPageState extends State<SearchPage> {
   };
 
   var filter = true;
+  var showProgress = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
+          showProgress ? Center(child: CircularProgressIndicator(),):Container(),
           Container(
-
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text("Filter Pi", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                Text(
+                  "Filter Pi",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
                 Switch(
-
                   onChanged: (bool value) {
                     setState(() {
                       filter = value;
@@ -124,13 +127,25 @@ class _SearchPageState extends State<SearchPage> {
     List<Widget> list = [];
     snapshot.data!.forEach((ScanResult r) {
       list.add(ScanResultTile(
-        result: r,
-        onTap: () =>
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-          r.device.connect();
-          return DeviceScreen(device: r.device);
-        })),
-      ));
+          result: r,
+          onTap: () {
+            setState(() {
+              showProgress = true;
+            });
+            r.device.connect().then((value) {
+              print("CONNECTIION VALUE " );
+              setState(() {
+                showProgress = false;
+              });
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return DeviceScreen(device: r.device);
+              }));
+            }).catchError((err){
+              setState(() {
+                showProgress = false;
+              });
+            });
+          }));
     });
     return list;
   }
@@ -143,11 +158,23 @@ class _SearchPageState extends State<SearchPage> {
         if (r.device.id.toString().startsWith(element)) {
           list.add(ScanResultTile(
             result: r,
-            onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) {
-              r.device.connect();
-              return DeviceScreen(device: r.device);
-            })),
+            onTap: () {
+              setState(() {
+                showProgress = true;
+              });
+              r.device.connect().then((value) {
+                setState(() {
+                  showProgress = false;
+                });
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                  return DeviceScreen(device: r.device);
+                }));
+              }).catchError((err){
+                setState(() {
+                  showProgress = false;
+                });
+              });
+            },
           ));
         }
       });

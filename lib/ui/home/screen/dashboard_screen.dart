@@ -34,11 +34,27 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
     }
   }
 
+  String pageName(int index) {
+    switch(index) {
+      case 0:
+        return "Home";
+      case 1:
+        return "Terminal";
+      case 2:
+        return "Network";
+      case 3:
+        return "Settings";
+      default:
+        return "Default";
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text(pageName(pageIndex)),
       ),
       body: pages(pageIndex),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -71,7 +87,7 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
         color: Colors.black54,
         selectedColor: Colors.white,
         centerItemText: '',
-        backgroundColor: Colors.blue,
+        backgroundColor: Theme.of(context).primaryColor,
         onTabSelected: (int value) {
           setState(() {
             pageIndex = value;
