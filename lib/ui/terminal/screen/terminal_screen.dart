@@ -4,13 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 
 class TerminalScreen extends StatefulWidget {
+  final BluetoothCharacteristic characteristic;
+  final String responseString;
+  final Function(String)? onWritePressed;
+
+  TerminalScreen({Key? key,
+    required this.characteristic,
+    required this.responseString,
+    this.onWritePressed});
+
   @override
   State<TerminalScreen> createState() => _TerminalScreenState();
 }
 
 class _TerminalScreenState extends State<TerminalScreen> {
-  String responseString = "";
-  TextEditingController textController1 = new TextEditingController();
+  List<String> responseList = [];
+  TextEditingController inputController = new TextEditingController();
   TextEditingController textController2 = new TextEditingController();
 
   /*
@@ -54,7 +63,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
                   ),
                   Expanded(
                     child: TextFormField(
-                      controller: textController1,
+                      controller: inputController,
                         obscureText: false,
                       decoration: InputDecoration(
                         hintText: 'Bluetooth',
@@ -70,10 +79,12 @@ class _TerminalScreenState extends State<TerminalScreen> {
               ),
             ),
             Expanded(
-              child: ListView(
+              child: ListView.builder(
                 padding: EdgeInsets.zero,
                 scrollDirection: Axis.vertical,
-                children: [],
+                itemBuilder: (BuildContext context, int index) {
+                  return Text(responseList[index]);
+                  },
               )
             ),
 
@@ -89,21 +100,35 @@ class _TerminalScreenState extends State<TerminalScreen> {
                     ),
                   ),
                 ),
-                Icon(
-                  Icons.double_arrow,
-                  color: Colors.black,
-                  size: 30,
+                IconButton(
+                  icon: Icon(Icons.send,
+                      color: Theme
+                          .of(context)
+                          .iconTheme
+                          .color
+                          ?.withOpacity(0.5)),
+                  onPressed: (){
+                    responseList.add(inputController.text);
+                    widget.onWritePressed!(inputController.text);
+                    responseList.add(widget.responseString);
+                  },
                 ),
-                Icon(
-                  Icons.settings_outlined,
-                  color: Colors.black,
-                  size: 30,
+                IconButton(
+                  icon:Icon(
+                    Icons.settings_outlined,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                  onPressed: () {  },
                 ),
-                Icon(
-                  Icons.settings_outlined,
-                  color: Colors.black,
-                  size: 30,
-                ),
+                IconButton(
+                  icon:Icon(
+                    Icons.settings_outlined,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                  onPressed: () {  },
+                )
               ],
             )
           ],

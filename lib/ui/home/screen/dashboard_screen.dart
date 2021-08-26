@@ -24,7 +24,7 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
       case 0:
         return SearchPage();
       case 1:
-        return TerminalScreen();
+        return TerminalScreen(characteristic: null, responseString: '',);
       case 2:
         return NetWorkScreen();
       case 3:
