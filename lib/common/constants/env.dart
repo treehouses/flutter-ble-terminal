@@ -6,9 +6,9 @@ class Env {
 
 mixin EnvValue {
   static final Env development =
-      Env('https://devapi.g4ktv.com/api/v1', 'https://devapi.g4ktv.com/api/v1');
+      Env('', '');
   static final Env staging =
-      Env('https://devapi.g4ktv.com/api/v1', 'https://devapi.g4ktv.com/api/v1');
+  Env('', '');
   static final Env production =
-      Env('https://api.g4ktv.com/api/v1', 'https://api.g4ktv.com/api/v1');
+  Env('', '');
 }
