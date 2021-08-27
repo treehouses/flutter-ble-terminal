@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:treehousesble/ui/terminal/screen/terminal_screen.dart';
 
 import 'descriptor_tile.dart';
 
@@ -104,6 +105,11 @@ class CharacteristicTile extends StatelessWidget {
                         .color
                         ?.withOpacity(0.5)),
                 onPressed: onNotificationPressed,
+              ),
+              TerminalScreen(
+                characteristic: this.characteristic,
+                responseString: "",
+                onWritePressed: this.onWritePressed,
               )
             ],
           ),

@@ -8,7 +8,7 @@ class TerminalScreen extends StatefulWidget {
   final String responseString;
   final Function(String)? onWritePressed;
 
-  TerminalScreen({Key? key,
+  TerminalScreen({
     required this.characteristic,
     required this.responseString,
     this.onWritePressed});
@@ -22,21 +22,6 @@ class _TerminalScreenState extends State<TerminalScreen> {
   TextEditingController inputController = new TextEditingController();
   TextEditingController textController2 = new TextEditingController();
 
-  /*
-  Functions taken from device_screen for Terminal functionality, functionality currently not impletemented, just view
-   */
-  // List<int> _sendCommand(String command) {
-  //   return utf8.encode(command);
-  // }
-  //
-  // Future<void> _buildServiceTiles(BluetoothCharacteristic c, String command) async {
-  //   await c.write(_sendCommand(command), withoutResponse: true);
-  //   List<int> response =  await c.read();
-  //   setState(() {
-  //     responseString = utf8.decode(response);
-  //   });
-  //   print(utf8.decode(response));
-  // }
 
   @override
   void initState(){
