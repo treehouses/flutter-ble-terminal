@@ -25,8 +25,11 @@ jobs:
 
     - run: flutter build apk --no-sound-null-safety
     
-    #- name: sign plz
-    #  run: |
+    - name: sign plz
+      run: |
+        #NEW
+        #gpg -d -passphrase 
+        
         #OLD
         #printf "${{ secrets.PASSWORD }}\n${{ secrets.PASSWORD }}\nflutter by\nvim\nole\nboston\nmassachusetts\nus\nyes" | keytool -genkey -v -keystore ~/upload-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
         #cd /home/runner/
