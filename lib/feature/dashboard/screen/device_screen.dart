@@ -4,9 +4,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
-import 'package:treehousesble/feature/home/widget/characteristic_tile.dart';
-import 'package:treehousesble/feature/home/widget/descriptor_tile.dart';
-import 'package:treehousesble/feature/home/widget/service_tile.dart';
+import 'package:treehousesble/feature/dashboard/widget/characteristic_tile.dart';
+import 'package:treehousesble/feature/dashboard/widget/descriptor_tile.dart';
+import 'package:treehousesble/feature/dashboard/widget/service_tile.dart';
 
 class DeviceScreen extends StatefulWidget {
    DeviceScreen({Key? key, required this.device}) : super(key: key);

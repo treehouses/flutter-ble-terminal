@@ -8,7 +8,6 @@ class MultiRepoListing extends StatelessWidget {
   const MultiRepoListing({required this.child});
   @override
   Widget build(BuildContext context) {
-    return MultiRepositoryProvider(providers: [
-    ], child: MultiBlocListing(child: child));
+    return MultiRepositoryProvider(providers: [], child: MultiBlocListing(child: child));
   }
 }

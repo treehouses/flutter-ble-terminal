@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
-import 'package:treehousesble/feature/home/screen/search_screen.dart';
-import 'package:treehousesble/feature/home/widget/fab_bottom_app_bar.dart';
+import 'package:treehousesble/feature/dashboard/screen/search_screen.dart';
+import 'package:treehousesble/feature/dashboard/widget/fab_bottom_app_bar.dart';
 import 'package:treehousesble/feature/network/screen/network_screen.dart';
 import 'package:treehousesble/feature/settings/screen/settings_screen.dart';
 
@@ -73,7 +73,7 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
       ),
       bottomNavigationBar: FABBottomAppBar(
         items: [
-          FABBottomAppBarItem(iconData: Icons.home, text: 'Home'),
+          FABBottomAppBarItem(iconData: Icons.dashboard, text: 'Home'),
           FABBottomAppBarItem(iconData: Icons.branding_watermark_outlined, text: 'Terminal'),
           FABBottomAppBarItem(iconData: Icons.network_wifi, text: 'Network'),
           FABBottomAppBarItem(iconData: Icons.settings, text: 'Settings'),
