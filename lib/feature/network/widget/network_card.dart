@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:treehousesble/ui/widgets/gradient_card.dart';
+import 'package:treehousesble/common/widget/gradient_card.dart';
 
 class NetWorkCard extends StatefulWidget {
   final int cardNum;

@@ -31,6 +31,8 @@ dependencies:
   url_launcher: ^6.0.9
   shared_preferences: ^2.0.6
   equatable: ^2.0.3
+  device_preview:
+  flutter_svg: ^0.21.0+1
   bloc: ^7.1.0
   flutter_bloc: ^7.1.0
   rxdart: ^0.26.0

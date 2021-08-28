@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:treehousesble/ui/network/widget/network_card.dart';
-import 'package:treehousesble/ui/widgets/binary_alert_dialog.dart';
+import 'package:treehousesble/feature/network/widget/network_card.dart';
+import 'package:treehousesble/common/widget/binary_alert_dialog.dart';
 
 class NetWorkScreen extends StatefulWidget {
   @override

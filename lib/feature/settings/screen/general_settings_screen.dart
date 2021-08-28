@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:treehousesble/ui/widgets/binary_alert_dialog.dart';
+import 'package:treehousesble/common/widget/binary_alert_dialog.dart';
 
 class GeneralSettingsScreen extends StatefulWidget {
   @override
