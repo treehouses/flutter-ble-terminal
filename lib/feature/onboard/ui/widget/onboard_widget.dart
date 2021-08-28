@@ -7,7 +7,7 @@ class OnboardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageWrapper(
-      body: Center(
+      body: Center(child: Column(children: [Text("GET STARTED") ,Center(
         child:  InkWell(
           splashColor: Colors.transparent,
           customBorder: RoundedRectangleBorder(
@@ -29,7 +29,7 @@ class OnboardWidget extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      )],),),
     );
   }
 }

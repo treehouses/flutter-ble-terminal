@@ -7,7 +7,7 @@ class SplashWidget extends StatelessWidget {
     return PageWrapper(
       body: Container(
         child: Center(
-          child: Text("Splash"),
+          child: Text("Treehouuses Ble"),
         ),
       ),
     );
