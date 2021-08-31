@@ -106,11 +106,25 @@ class CharacteristicTile extends StatelessWidget {
                         ?.withOpacity(0.5)),
                 onPressed: onNotificationPressed,
               ),
-              TerminalScreen(
-                characteristic: this.characteristic,
-                responseString: "",
-                onWritePressed: this.onWritePressed,
-              )
+              IconButton(
+                icon: Icon(
+                    Icons.branding_watermark_outlined,
+                    color: Theme
+                        .of(context)
+                        .iconTheme
+                        .color
+                        ?.withOpacity(0.5)),
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                    return TerminalScreen(
+                      characteristic: this.characteristic,
+                      responseString: "",
+                      onWritePressed: this.onWritePressed,
+                    );
+                  }));
+                }
+              ),
+
             ],
           ),
           children: descriptorTiles,
