@@ -30,6 +30,15 @@ dependencies:
   cupertino_icons: ^1.0.2
   url_launcher: ^6.0.9
   shared_preferences: ^2.0.6
+  equatable: ^2.0.3
+  device_preview: ^0.7.4
+  flutter_svg: ^0.22.0
+  http: ^0.13.3
+  bloc: ^7.1.0
+  flutter_bloc: ^7.1.0
+  rxdart: ^0.26.0
+  package_info: ^2.0.2
+  logger:
 
 dev_dependencies:
   flutter_test:
