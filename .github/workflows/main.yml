@@ -30,14 +30,12 @@ jobs:
         #NEW
         echo "${{ secrets.UPLOAD_KEYSTORE }}" > upload-keystore.asc
         gpg -d --passphrase "${{ secrets.UPLOAD_KEYSTORE_PASSPHRASE }}" --batch upload-keystore.asc > upload-keystore.jks
-        echo "    PWD"
-        pwd
-        echo "    WHEREAMI"
-        whereami
-        echo "    LS"
-        ls -al
-        echo "    TREE"
-        tree
+        //echo "    PWD"
+        //pwd
+        //echo "    LS"
+        //ls -al
+        //echo "    TREE"
+        //tree
         
         #OLD
         #printf "${{ secrets.PASSWORD }}\n${{ secrets.PASSWORD }}\nflutter by\nvim\nole\nboston\nmassachusetts\nus\nyes" | keytool -genkey -v -keystore ~/upload-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
