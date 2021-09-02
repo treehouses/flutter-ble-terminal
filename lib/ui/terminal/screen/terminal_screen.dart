@@ -48,7 +48,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
                   ),
                   Expanded(
                     child: TextFormField(
-                      controller: inputController,
+                      controller: textController2,
                         obscureText: false,
                       decoration: InputDecoration(
                         hintText: 'Bluetooth',
@@ -78,7 +78,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
               children: [
                 Expanded(
                   child: TextFormField(
-                    controller: textController2,
+                    controller: inputController,
                     obscureText: false,
                     decoration: InputDecoration(
                       hintText: 'Enter Commands',
@@ -93,9 +93,9 @@ class _TerminalScreenState extends State<TerminalScreen> {
                           .color
                           ?.withOpacity(0.5)),
                   onPressed: (){
-                    responseList.add(inputController.text);
+                    //responseList.add(inputController.text);
                     widget.onWritePressed!(inputController.text);
-                    responseList.add(widget.responseString);
+                    //responseList.add(widget.responseString);
                   },
                 ),
                 IconButton(
