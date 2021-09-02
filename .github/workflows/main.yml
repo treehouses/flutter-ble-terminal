@@ -50,11 +50,12 @@ jobs:
     #    cd flutter-ble-terminal/android
     #    touch key.properties
     
-    - name: rename apk
-      run: |
-        cd build/app/outputs/flutter-apk/
-        mv app.apk blueshot.apk
-        ls -al
+    #Debugging
+    #- name: rename apk
+    #  run: |
+    #    cd build/app/outputs/flutter-apk/
+    #    mv app.apk blueshot.apk
+    #    ls -al
   #ios:
   #  runs-on: macOS-latest
   #  steps:
