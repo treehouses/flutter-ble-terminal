@@ -30,6 +30,10 @@ jobs:
         #NEW
         echo "${{ secrets.UPLOAD_KEYSTORE }}" > upload-keystore.asc
         gpg -d --passphrase "${{ secrets.UPLOAD_KEYSTORE_PASSPHRASE }}" --batch upload-keystore.asc > upload-keystore.jks
+        echo "    PWD"
+        pwd
+        echo "    WHEREAMI"
+        whereami
         echo "    LS"
         ls -al
         echo "    TREE"
