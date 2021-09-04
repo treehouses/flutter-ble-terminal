@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:treehousesble/app/theme.dart';
 import 'package:treehousesble/common/route/routes.dart';
+import 'package:treehousesble/common/shared_pref/shared_pref.dart';
 import 'package:treehousesble/common/widget/page_wrapper.dart';
 
-class OnboardWidget extends StatelessWidget {
+class OnboardWidget extends StatefulWidget {
+  @override
+  _OnboardWidgetState createState() => _OnboardWidgetState();
+}
+
+class _OnboardWidgetState extends State<OnboardWidget> {
+  @override
+  void initState() {
+    super.initState();
+    setOnOpenFirstTime();
+  }
+
+  setOnOpenFirstTime() async {
+    await SharedPref.setFirstTimeAppOpen(false);
+  }
   @override
   Widget build(BuildContext context) {
     return PageWrapper(
