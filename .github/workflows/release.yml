@@ -31,10 +31,10 @@ jobs:
         docker pull opensecurity/mobile-security-framework-mobsf
         docker run -itd -p 8000:8000 opensecurity/mobile-security-framework-mobsf:latest 
         cd build/app/outputs/flutter-apk/
-        #ls -al
-        #wget http://localhost:8000/api_docs
-        #MOBSF_API_KEY=$(grep 'REST API Key' api_docs)
-        #MOBSF_API_KEY=${MOBSF_API_KEY:42:64}
+        ls -al
+        wget http://localhost:8000/api_docs
+        MOBSF_API_KEY=$(grep 'REST API Key' api_docs)
+        MOBSF_API_KEY=${MOBSF_API_KEY:42:64}
         #rm api_docs
         #HASH=$(md5sum remote.apk)
         #HASH=${HASH:0:32}
