@@ -30,7 +30,7 @@ jobs:
       run: |
         docker pull opensecurity/mobile-security-framework-mobsf
         docker run -itd -p 8000:8000 opensecurity/mobile-security-framework-mobsf:latest 
-        cd build/release/signed/
+        cd build/app/outputs/flutter-apk/
         #ls -al
         #wget http://localhost:8000/api_docs
         #MOBSF_API_KEY=$(grep 'REST API Key' api_docs)
