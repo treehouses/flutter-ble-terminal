@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:treehousesble/app/app.dart';
 import 'package:treehousesble/common/bloc/bluetooth_state.dart';
-import 'package:treehousesble/common/constants/AppConstants.dart';
+import 'package:treehousesble/common/constants/app_constants.dart';
 import 'package:treehousesble/common/constants/constant.dart';
 import 'package:treehousesble/common/constants/strings.dart';
 import 'package:treehousesble/common/shared_pref/shared_pref.dart';
