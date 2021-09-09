@@ -7,7 +7,8 @@ class SplashWidget extends StatelessWidget {
     return PageWrapper(
       body: Container(
         child: Center(
-          child: Text("Treehouuses Ble"),
+          child: Image.asset(/android/app/src/main/res/drawable/treehouse-web.png),
+          child: Text("Treehouuses"),
         ),
       ),
     );
