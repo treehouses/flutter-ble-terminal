@@ -8,7 +8,7 @@ class SplashWidget extends StatelessWidget {
     return PageWrapper(
       body: Container(
         child: Center(
-          child: Image.asset(Assets.launcherIcon),
+          child: Image.asset(Assets.launcherIcon, height: 300,),
         ),
       ),
     );
