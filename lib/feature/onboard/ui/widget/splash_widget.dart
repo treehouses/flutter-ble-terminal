@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:treehousesble/common/constants/assets.dart';
 import 'package:treehousesble/common/widget/page_wrapper.dart';
 
 class SplashWidget extends StatelessWidget {
@@ -7,7 +8,7 @@ class SplashWidget extends StatelessWidget {
     return PageWrapper(
       body: Container(
         child: Center(
-          child: Text("Treehouuses Ble"),
+          child: Image.asset(Assets.laucherIcon),
         ),
       ),
     );
