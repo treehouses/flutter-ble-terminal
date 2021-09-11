@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:treehousesble/feature/system/widget/system_ssh_widget.dart';
 
 
-class SystemScreen extends StatelessWidget{
+class SystemScreen extends StatefulWidget{
+  @override
+  _SystemScreenState createState() => _SystemScreenState();
+}
+
+class _SystemScreenState extends State<SystemScreen> {
   @override
   Widget build(BuildContext context) {
-   
+
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -29,5 +34,4 @@ class SystemScreen extends StatelessWidget{
       ),
     );
   }
-  
 }
