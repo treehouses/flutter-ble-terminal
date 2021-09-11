@@ -8,6 +8,7 @@ class SplashWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageWrapper(
       body: Container(
+        color: Theme.of(context).backgroundColor,
         child: Center(
           child: Column(
             children: [
@@ -15,7 +16,7 @@ class SplashWidget extends StatelessWidget {
                 Assets.launcherIcon,
                 height: 300,
               ),
-             Padding(padding: EdgeInsets.all(16), child:  Text(Strings.APP_TITLE),)
+             Padding(padding: EdgeInsets.all(16), child:  Text(Strings.APP_TITLE, ),)
             ],
           ),
         ),
