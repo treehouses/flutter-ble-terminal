@@ -1,0 +1,2 @@
+export 'assets.dart';
+
