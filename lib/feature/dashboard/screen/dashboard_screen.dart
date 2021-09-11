@@ -5,6 +5,7 @@ import 'package:treehousesble/feature/dashboard/screen/search_screen.dart';
 import 'package:treehousesble/feature/dashboard/widget/fab_bottom_app_bar.dart';
 import 'package:treehousesble/feature/network/screen/network_screen.dart';
 import 'package:treehousesble/feature/settings/screen/settings_screen.dart';
+import 'package:treehousesble/feature/system/screen/system_screen.dart';
 
 class FindDevicesScreen extends StatefulWidget {
   @override
@@ -19,7 +20,7 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
       case 0:
         return SearchPage();
       case 1:
-        return Container();
+        return SystemScreen();
       case 2:
         return NetWorkScreen();
       case 3:
