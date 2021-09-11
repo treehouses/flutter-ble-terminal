@@ -11,10 +11,12 @@ class SplashWidget extends StatelessWidget {
         color: Theme.of(context).backgroundColor,
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
                 Assets.launcherIcon,
-                height: 300,
+                height: 120,
               ),
              Padding(padding: EdgeInsets.all(16), child:  Text(Strings.APP_TITLE, ),)
             ],
