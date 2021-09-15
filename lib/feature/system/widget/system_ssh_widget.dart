@@ -6,7 +6,7 @@ class SystemSSHWidget extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          child: Text("Share Internet With Pi (beta)",),
+          child: Text("Add SSH Key",),
           onTap: () {
 
           },

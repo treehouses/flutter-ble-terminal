@@ -6,13 +6,13 @@ class SystemInternetWidget extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          child: Text("Internet 1",),
+          child: Text("Share Internet With Pi (beta)",),
           onTap: () {
 
           },
         ),
         InkWell(
-          child: Text("Internet 2"),
+          child: Text("Internet Blocking"),
           onTap: () {},
         ),
       ],

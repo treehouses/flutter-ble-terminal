@@ -6,13 +6,17 @@ class SystemHomeWidget extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          child: Text("Home 1",),
+          child: Text("Shutdown & Reboot",),
           onTap: () {
 
           },
         ),
         InkWell(
-          child: Text("Home 2"),
+          child: Text("Open VNC"),
+          onTap: () {},
+        ),
+        InkWell(
+          child: Text("Toggle Camera"),
           onTap: () {},
         ),
       ],
