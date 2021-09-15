@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:treehousesble/feature/system/widget/system_home_widget.dart';
 import 'package:treehousesble/feature/system/widget/system_internet_widget.dart';
 import 'package:treehousesble/feature/system/widget/system_ssh_widget.dart';
 
@@ -29,7 +30,7 @@ class _SystemScreenState extends State<SystemScreen> {
           children: [
             SystemSSHWidget(),
             SystemInternetWidget(),
-            Text("System2"),
+            SystemHomeWidget(),
           ],
         ),
       ),
