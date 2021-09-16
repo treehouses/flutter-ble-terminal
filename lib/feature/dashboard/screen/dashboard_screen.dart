@@ -5,6 +5,8 @@ import 'package:treehousesble/feature/dashboard/screen/search_screen.dart';
 import 'package:treehousesble/feature/dashboard/widget/fab_bottom_app_bar.dart';
 import 'package:treehousesble/feature/network/screen/network_screen.dart';
 import 'package:treehousesble/feature/settings/screen/settings_screen.dart';
+
+import 'home_screen.dart';
 class FindDevicesScreen extends StatefulWidget {
   @override
   State<FindDevicesScreen> createState() => _FindDevicesScreenState();
@@ -16,9 +18,9 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
   Widget pages(int index) {
     switch(index) {
       case 0:
-        return SearchPage();
+        //return SearchPage();
         //TODO: Link search page to home screen after connection
-        //return HomeScreen();
+        return HomeScreen();
       case 1:
         return Container();
       case 2:

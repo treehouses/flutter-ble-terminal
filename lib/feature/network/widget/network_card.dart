@@ -27,8 +27,8 @@ class _NetWorkCard extends State<NetWorkCard> {
           [140, 140],
           widget.icon,
           widget.type,
-          widget.networkMode == widget.cardNum,
-          () => widget.setNetworkMode(widget.cardNum)
+          highlighted: widget.networkMode == widget.cardNum,
+          func:() => widget.setNetworkMode(widget.cardNum)
       ),
     );
   }

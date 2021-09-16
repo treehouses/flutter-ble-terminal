@@ -5,4 +5,5 @@ class Routes {
   static const dashboard = "/dashboard";
   static const settings = "/settings";
   static const notification = "/notification";
+  static const search = "/search";
 }

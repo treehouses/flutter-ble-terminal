@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:treehousesble/common/navigation/nav.dart';
+import 'package:treehousesble/common/route/routes.dart';
 import 'package:treehousesble/common/widget/gradient_card.dart';
+import 'package:treehousesble/feature/dashboard/screen/search_screen.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -24,7 +27,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             [Color(0xFFFF5F6D), Color(0xFFFFC371)],
                             [MediaQuery.of(context).size.width, 140],
                             Icons.apps,
-                            "Services"
+                            "Services",
+                            highlighted: false,
+                            func: (){
+                              Navigator.of(context).pushNamed(Routes.search);
+                            }
                         ),
                       ),
                     ]
@@ -82,4 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
         )
     );
   }
+
+  //returnPage() => Navigator.of(context).pushNamed(Routes.search);
+
 }
