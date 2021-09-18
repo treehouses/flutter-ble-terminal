@@ -25,6 +25,7 @@ class BluetoothCubit extends Cubit<DataState> {
 
   fetchDeviceList(bool filterPi) {
     emit(StateLoading());
+    print("FETCH DEVICE LIST");
     flutterBlue.connectedDevices
         .asStream()
         .listen((List<BluetoothDevice> devices) {
@@ -33,6 +34,7 @@ class BluetoothCubit extends Cubit<DataState> {
       }
     });
     flutterBlue.scanResults.listen((List<ScanResult> results) {
+      print("Scan result " + results.length.toString());
       for (ScanResult result in results) {
         _addDeviceTolist(result.device, filterPi);
       }
@@ -41,10 +43,13 @@ class BluetoothCubit extends Cubit<DataState> {
   }
 
   void _addDeviceTolist(BluetoothDevice device, bool filterPi) {
+    print("Filter pi " + device.name);
     if (!devicesList.contains(device) && checkIfPi(device, filterPi)) {
       devicesList.add(device);
     }
+    emit(StateIniital());
     emit(StateFoundDevices(list: devicesList));
+    // if (devicesList.length > 0) );
   }
 
   fetchServicesAndConnect(BluetoothDevice device) async {

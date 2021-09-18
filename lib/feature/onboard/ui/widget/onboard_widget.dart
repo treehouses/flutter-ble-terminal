@@ -19,6 +19,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
   setOnOpenFirstTime() async {
     await SharedPref.setFirstTimeAppOpen(false);
   }
+
   @override
   Widget build(BuildContext context) {
     return PageWrapper(
