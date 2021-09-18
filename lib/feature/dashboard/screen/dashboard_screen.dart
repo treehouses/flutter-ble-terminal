@@ -4,6 +4,7 @@ import 'package:flutter_blue/flutter_blue.dart';
 import 'package:treehousesble/common/bloc/bluetooth_cubit.dart';
 import 'package:treehousesble/common/bloc/bluetooth_state.dart';
 import 'package:treehousesble/common/navigation/nav.dart';
+import 'package:treehousesble/common/route/routes.dart';
 import 'package:treehousesble/feature/dashboard/screen/search_screen.dart';
 import 'package:treehousesble/feature/dashboard/widget/fab_bottom_app_bar.dart';
 import 'package:treehousesble/feature/network/screen/network_screen.dart';
@@ -82,18 +83,9 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
         stream: FlutterBlue.instance.isScanning,
         initialData: false,
         builder: (c, snapshot) {
-          if (snapshot.data!) {
-            return FloatingActionButton(
-              child: Icon(Icons.stop),
-              onPressed: () => FlutterBlue.instance.stopScan(),
-              backgroundColor: Colors.red,
-            );
-          } else {
-            return FloatingActionButton(
-                child: Icon(Icons.search),
-                onPressed: () => FlutterBlue.instance
-                    .startScan(timeout: Duration(seconds: 10)));
-          }
+          return FloatingActionButton(
+                    child: Icon(Icons.search),
+                    onPressed: () => Navigator.pushNamed(context, Routes.search));
         },
       ),
       bottomNavigationBar: FABBottomAppBar(
