@@ -7,7 +7,9 @@ import 'multi_bloc_listing.dart';
 class MultiRepoListing extends StatelessWidget {
   final Widget child;
   final Env env;
-  const MultiRepoListing({required this.child,  required this.env});
+
+  const MultiRepoListing({required this.child, required this.env});
+
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(providers: [

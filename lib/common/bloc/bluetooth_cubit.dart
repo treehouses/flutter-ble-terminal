@@ -53,22 +53,32 @@ class BluetoothCubit extends Cubit<DataState> {
   }
 
   fetchServicesAndConnect(BluetoothDevice device) async {
-    List<BluetoothService> services = await device.discoverServices();
-    for (BluetoothService service in services) {
-      if (service.uuid.toString() == Strings.BLUETOOTH_UUID) {
-        List<BluetoothCharacteristic> characteristics = service.characteristics;
-        if (characteristics.length > 0) {
-          characteristic = characteristics[0];
-          emit(StateDeviceConnected(characteristic: characteristic!));
-          break;
+    emit(StateLoading());
+    try {
+      await device.connect(timeout: Duration(seconds: 20));
+      List<BluetoothService> services = await device.discoverServices();
+      for (BluetoothService service in services) {
+        if (service.uuid.toString() == Strings.BLUETOOTH_UUID) {
+          List<BluetoothCharacteristic> characteristics =
+              service.characteristics;
+          if (characteristics.length > 0) {
+            characteristic = characteristics[0];
+            emit(StateDeviceConnected(characteristic: characteristic!));
+            print("CONNECTED TO DEVICE");
+            break;
+          }
         }
       }
+    } catch (e) {
+      emit(StateError(message: "Unable to connect please try again"));
     }
   }
 
-  checkDeviceConnected() {
+  checkDeviceConnected() async {
     if (characteristic == null) {
       emit(StateDeviceNotConnected());
+      var connected = await flutterBlue.connectedDevices;
+      if (connected.length > 0) fetchServicesAndConnect(connected[0]);
     } else {
       emit(StateDeviceConnected(characteristic: characteristic!));
     }
