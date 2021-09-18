@@ -36,7 +36,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                 customBorder: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(45)),
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, Routes.dashboard);
+                  Navigator.pushReplacementNamed(context, Routes.search);
                 },
                 child: Container(
                   height: 65,
