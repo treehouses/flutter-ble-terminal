@@ -28,9 +28,8 @@ class _SystemScreenState extends State<SystemScreen> {
         ),
         body: TabBarView(
           children: [
-            SystemSSHWidget(),
-            SystemInternetWidget(),
-            SystemHomeWidget(),
+            ServicesOverviewWidget(),
+            ServicesDetailsWidget(),
           ],
         ),
       ),
