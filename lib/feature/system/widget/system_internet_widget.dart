@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class SystemSSHWidget extends StatelessWidget {
+class SystemInternetWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         InkWell(
-          child: Text("Add SSH Key",),
+          child: Text("Share Internet With Pi (beta)",),
           onTap: () {
 
           },
         ),
         InkWell(
-          child: Text("SSH 2 Factor Authentication"),
+          child: Text("Internet Blocking"),
           onTap: () {},
         ),
       ],

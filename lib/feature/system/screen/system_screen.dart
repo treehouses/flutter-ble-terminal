@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:treehousesble/feature/system/widget/system_home_widget.dart';
+import 'package:treehousesble/feature/system/widget/system_internet_widget.dart';
 import 'package:treehousesble/feature/system/widget/system_ssh_widget.dart';
 
 
@@ -19,7 +21,7 @@ class _SystemScreenState extends State<SystemScreen> {
             tabs: [
               Tab(text: "SSH",),
               Tab(text: "Internet",),
-              Tab(text: "Other",),
+              Tab(text: "Home",),
             ],
           ),
           title: const Text('System'),
@@ -27,8 +29,8 @@ class _SystemScreenState extends State<SystemScreen> {
         body: TabBarView(
           children: [
             SystemSSHWidget(),
-            Text("System2"),
-            Text("System2"),
+            SystemInternetWidget(),
+            SystemHomeWidget(),
           ],
         ),
       ),
