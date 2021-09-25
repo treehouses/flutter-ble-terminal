@@ -28,9 +28,7 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
   Widget getHome() {
     return BlocConsumer(
         bloc: context.read<BluetoothCubit>(),
-        listener: (con, state) {
-
-        },
+        listener: (con, state) {},
         builder: (context, state) {
           if (state is StateDeviceConnected) {
             return Text("Connected to device " +
@@ -52,6 +50,8 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
         return NetWorkScreen();
       case 3:
         return SettingsScreen();
+      case 6:
+        return Container();
       default:
         return Container();
     }
@@ -61,14 +61,16 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
     switch (index) {
       case 0:
         return "Home";
-      case 1:
+      case 6:
         return "Terminal";
+      case 1:
+        return "System";
       case 2:
         return "Network";
       case 3:
         return "Settings";
       default:
-        return "Default";
+        return "Home";
     }
   }
 
@@ -80,20 +82,19 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
       ),
       body: pages(pageIndex),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: StreamBuilder<bool>(
-        stream: FlutterBlue.instance.isScanning,
-        initialData: false,
-        builder: (c, snapshot) {
-          return FloatingActionButton(
-                    child: Icon(Icons.search),
-                    onPressed: () => Navigator.pushNamed(context, Routes.search));
-        },
-      ),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.branding_watermark_outlined),
+          // on Pressed: () => Navigator.pushNamed(context, Routes.search));
+          onPressed: () {
+            setState(() {
+              pageIndex = 6;
+            });
+          }),
       bottomNavigationBar: FABBottomAppBar(
           items: [
             FABBottomAppBarItem(iconData: Icons.dashboard, text: 'Home'),
             FABBottomAppBarItem(
-                iconData: Icons.branding_watermark_outlined, text: 'Terminal'),
+                iconData: Icons.branding_watermark_outlined, text: 'System'),
             FABBottomAppBarItem(iconData: Icons.network_wifi, text: 'Network'),
             FABBottomAppBarItem(iconData: Icons.settings, text: 'Settings'),
           ],

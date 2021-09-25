@@ -16,15 +16,13 @@ class _SystemScreenState extends State<SystemScreen> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: AppBar(
-          bottom: TabBar(
-            tabs: [
-              Tab(text: "SSH",),
-              Tab(text: "Internet",),
-              Tab(text: "Home",),
-            ],
-          ),
-          title: const Text('System'),
+        appBar:  TabBar(
+          labelColor: Theme.of(context).primaryColor,
+          tabs: [
+            Tab(text: "SSH",),
+            Tab(text: "Internet",),
+            Tab(text: "Home",),
+          ],
         ),
         body: TabBarView(
           children: [
