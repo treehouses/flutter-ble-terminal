@@ -68,6 +68,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
                               responseList.add(input);
                               context.read<BluetoothCubit>()
                                 ..writeMessage(inputController.text);
+                              inputController.clear();
                             },
                           ),
                           IconButton(
