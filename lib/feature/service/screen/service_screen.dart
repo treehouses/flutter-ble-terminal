@@ -19,12 +19,11 @@ class _SystemScreenState extends State<SystemScreen> {
         appBar: AppBar(
           bottom: TabBar(
             tabs: [
-              Tab(text: "SSH",),
-              Tab(text: "Internet",),
-              Tab(text: "Home",),
+              Tab(text: "Overview",),
+              Tab(text: "Details",),
             ],
           ),
-          title: const Text('System'),
+          title: const Text('Services'),
         ),
         body: TabBarView(
           children: [
