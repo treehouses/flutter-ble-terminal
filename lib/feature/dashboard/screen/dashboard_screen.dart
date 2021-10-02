@@ -10,6 +10,7 @@ import 'package:treehousesble/feature/dashboard/widget/fab_bottom_app_bar.dart';
 import 'package:treehousesble/feature/network/screen/network_screen.dart';
 import 'package:treehousesble/feature/settings/screen/settings_screen.dart';
 import 'package:treehousesble/feature/system/screen/system_screen.dart';
+import 'package:treehousesble/feature/terminal/screen/terminal_screen.dart';
 
 class FindDevicesScreen extends StatefulWidget {
   @override
@@ -51,7 +52,7 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
       case 3:
         return SettingsScreen();
       case 6:
-        return Container();
+        return TerminalScreen();
       default:
         return Container();
     }

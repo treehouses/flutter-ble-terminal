@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:treehousesble/app/app.dart';
@@ -21,6 +23,27 @@ class BluetoothCubit extends Cubit<DataState> {
     } else {
       emit(NotFirstTimeAppOpen());
     }
+  }
+  List<int> _sendCommand(String command) {
+    return utf8.encode(command);
+  }
+
+  writeMessage(String command) async{
+    if(characteristic != null){
+      await characteristic?.write(_sendCommand(command), withoutResponse: true);
+      print("SEND MESSAGE " + command);
+      readMessage();
+    }
+  }
+
+  readMessage() async{
+    if(characteristic != null){
+      emit(StateReading());
+      List<int> response =  await characteristic!.read();
+      var responseString = utf8.decode(response);
+      emit(StateReadSuccess(data: responseString));
+    }
+
   }
 
   fetchDeviceList(bool filterPi) {
@@ -56,21 +79,13 @@ class BluetoothCubit extends Cubit<DataState> {
     emit(StateLoading());
     try {
       await device.connect(timeout: Duration(seconds: 20));
-      List<BluetoothService> services = await device.discoverServices();
-      for (BluetoothService service in services) {
-        if (service.uuid.toString() == Strings.BLUETOOTH_UUID) {
-          List<BluetoothCharacteristic> characteristics =
-              service.characteristics;
-          if (characteristics.length > 0) {
-            characteristic = characteristics[0];
-            emit(StateDeviceConnected(characteristic: characteristic!));
-            print("CONNECTED TO DEVICE");
-            break;
-          }
-        }
-      }
+      discoverServices(device);
     } catch (e) {
-      emit(StateError(message: "Unable to connect please try again"));
+      if(e.toString().contains("already")){
+        discoverServices(device);
+      }else{
+        emit(StateError(message: "Unable to connect please try again"));
+      }
     }
   }
 
@@ -99,5 +114,21 @@ class BluetoothCubit extends Cubit<DataState> {
       return isPi;
     }
     return true;
+  }
+
+  void discoverServices(BluetoothDevice device)async{
+    List<BluetoothService> services = await device.discoverServices();
+    for (BluetoothService service in services) {
+      if (service.uuid.toString() == Strings.BLUETOOTH_UUID) {
+        List<BluetoothCharacteristic> characteristics =
+            service.characteristics;
+        if (characteristics.length > 0) {
+          characteristic = characteristics[0];
+          emit(StateDeviceConnected(characteristic: characteristic!));
+          print("CONNECTED TO DEVICE");
+          break;
+        }
+      }
+    }
   }
 }
