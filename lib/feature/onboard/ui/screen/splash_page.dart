@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:treehousesble/common/navigation/nav.dart';
 import 'package:treehousesble/common/route/routes.dart';
 import 'package:treehousesble/feature/onboard/ui/widget/splash_widget.dart';
 
@@ -14,7 +15,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, Routes.onboarding);
+      Nav.pushReplacementNamed(Routes.landing);
     });
   }
 
