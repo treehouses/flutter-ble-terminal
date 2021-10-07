@@ -29,7 +29,15 @@ class _OnboardWidgetState extends State<OnboardWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("GET STARTED"),
+            Image.asset('assets/icons/icon.png'),
+            Text(
+              "Welcome to Treehouses Remote",
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              "Communicate with Raspberry Pi over Bluetooth",
+              textAlign: TextAlign.center,
+            ),
             Center(
               child: InkWell(
                 splashColor: Colors.transparent,
