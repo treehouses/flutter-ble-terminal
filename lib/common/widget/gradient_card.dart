@@ -7,7 +7,8 @@ class GradientCard extends StatefulWidget {
   final String type;
   final bool highlighted;
   final Function? func;
-  GradientCard(this.colors, this.sizes, this.icon, this.type, this.highlighted, [this.func]);
+  //Colors takes two colors for gradient, sizes takes two numbers: width and height
+  GradientCard(this.colors, this.sizes, this.icon, this.type, {this.highlighted = false, this.func});
   @override
   State<GradientCard> createState() => _GradientCard();
 }
@@ -42,7 +43,7 @@ class _GradientCard extends State<GradientCard> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(widget.icon, color: Colors.white, size: 50),
+              Icon(widget.icon, color: Colors.white, size: widget.sizes[1]/2.8),
               Text(widget.type, style: TextStyle(fontSize: 20, color: Colors.white))
             ],
           )

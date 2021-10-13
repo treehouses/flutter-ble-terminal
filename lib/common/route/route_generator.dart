@@ -18,7 +18,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => LandingPage());
       case Routes.dashboard:
         return MaterialPageRoute(builder: (_) => DashboardPage());
-        case Routes.search:
+      case Routes.search:
         return MaterialPageRoute(builder: (_) => SearchRpiScreen());
       default:
         return MaterialPageRoute(builder: (_) => SplashPage());

@@ -12,6 +12,7 @@ import 'package:treehousesble/feature/settings/screen/settings_screen.dart';
 import 'package:treehousesble/feature/system/screen/system_screen.dart';
 import 'package:treehousesble/feature/terminal/screen/terminal_screen.dart';
 
+import 'home_screen.dart';
 class FindDevicesScreen extends StatefulWidget {
   @override
   State<FindDevicesScreen> createState() => _FindDevicesScreenState();
