@@ -6,5 +6,4 @@ class Routes {
   static const search = "/search";
   static const settings = "/settings";
   static const notification = "/notification";
-  static const search = "/search";
 }
