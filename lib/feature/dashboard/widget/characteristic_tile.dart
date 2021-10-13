@@ -42,7 +42,7 @@ class CharacteristicTile extends StatelessWidget {
                     style: Theme
                         .of(context)
                         .textTheme
-                        .body1
+                        .bodyText1
                         ?.copyWith(
                         color: Theme
                             .of(context)

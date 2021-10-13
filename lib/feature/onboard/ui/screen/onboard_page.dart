@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../widget/onboard_widget.dart';
 
 class OnboardPage extends StatelessWidget {
-  late PageController _pageController;
+   PageController _pageController = PageController();
   int currentIndex = 0;
 
 
