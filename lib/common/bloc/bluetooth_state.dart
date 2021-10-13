@@ -25,6 +25,7 @@ class NotFirstTimeAppOpen extends DataState {
 class StateIniital extends DataState {}
 
 class StateLoading extends DataState {}
+class StateReading extends DataState {}
 
 class StateError extends DataState {
   final String message;
