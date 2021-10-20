@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:treehousesble/feature/onboard/ui/widget/onboard_bluetooth_widget.dart';
+import 'package:treehousesble/feature/onboard/ui/widget/onboard_download_widget.dart';
 import '../widget/onboard_widget.dart';
 
 class OnboardPage extends StatelessWidget {
@@ -13,6 +15,12 @@ class OnboardPage extends StatelessWidget {
             children: <Widget>[
               Container(
                 child: OnboardWidget(),
+              ),
+              Container(
+                child: OnboardDownloadWidget(),
+              ),
+              Container(
+                child: OnboardBluetoothWidget(),
               )
             ],
     );
