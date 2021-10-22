@@ -37,21 +37,27 @@ class _OnboardDownloadWidgetState extends State<OnboardDownloadWidget> {
                   height: 100,
                   width: 200,
               ),
-              Text(
-                "Download Treehouses Image",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                  color: Colors.white
-                )
+              Container(
+                width: 300,
+                child: Text(
+                  "Download Treehouses Image",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                    color: Colors.white
+                  )
+                ),
               ),
-              Text(
-                "Treehouses Remote requires a Raspberry Pi running a Treehouses Image in order to function properly.",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white
-                )
+              Container(
+                width: 350,
+                child: Text(
+                  "Treehouses Remote requires a Raspberry Pi running a Treehouses Image in order to function properly.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white
+                  )
+                ),
               ),
               ElevatedButton(
                 style: ButtonStyle(

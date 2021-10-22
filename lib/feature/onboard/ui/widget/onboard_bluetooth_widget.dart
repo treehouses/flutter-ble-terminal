@@ -36,21 +36,27 @@ class _OnboardBluetoothWidgetState extends State<OnboardBluetoothWidget> {
                   height: 100,
                   width: 200,
               ),
-              Text(
-                "Connect to RPI via Bluetooth",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                  color: Colors.white
-                )
+              Container(
+                width: 300,
+                child: Text(
+                  "Connect to RPI via Bluetooth",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                    color: Colors.white
+                  )
+                ),
               ),
-              Text(
-                "Use Bluetooth to connect to RPI and start performing RPI functions",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white
-                )
+              Container(
+                width: 350,
+                child: Text(
+                  "Use Bluetooth to connect to RPI and start performing RPI functions",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white
+                  )
+                ),
               ),
               ElevatedButton(
                 style: ButtonStyle(

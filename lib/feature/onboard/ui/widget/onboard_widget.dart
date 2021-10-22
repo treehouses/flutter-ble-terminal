@@ -36,21 +36,27 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                   height: 100,
                   width: 200,
               ),
-              Text(
-                "Welcome to Treehouses Remote",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                  color: Colors.white
-                )
+              Container(
+                width: 300,
+                child: Text(
+                  "Welcome to Treehouses Remote",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                    color: Colors.white
+                  )
+                ),
               ),
-              Text(
-                "Communicate with Raspberry Pi over Bluetooth",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white
-                )
+              Container(
+                width: 350,
+                child: Text(
+                  "Communicate with Raspberry Pi over Bluetooth",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white
+                  )
+                ),
               ),
               Center(
                 child: InkWell(
