@@ -3,17 +3,15 @@ import 'package:treehousesble/app/theme.dart';
 import 'package:treehousesble/common/route/routes.dart';
 import 'package:treehousesble/common/shared_pref/shared_pref.dart';
 import 'package:treehousesble/common/widget/page_wrapper.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class OnboardWidget extends StatefulWidget {
-  Function() onNext;
-  OnboardWidget(this.onNext);
-
+class OnboardDownloadWidget extends StatefulWidget {
 
   @override
-  _OnboardWidgetState createState() => _OnboardWidgetState();
+  _OnboardDownloadWidgetState createState() => _OnboardDownloadWidgetState();
 }
 
-class _OnboardWidgetState extends State<OnboardWidget> {
+class _OnboardDownloadWidgetState extends State<OnboardDownloadWidget> {
   @override
   void initState() {
     super.initState();
@@ -28,21 +26,21 @@ class _OnboardWidgetState extends State<OnboardWidget> {
   Widget build(BuildContext context) {
     return PageWrapper(
       body: Container(
-        color: Colors.blueGrey,
+        color: Colors.black54,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
-                  'assets/icons/icon.png',
+                  'assets/icons/ic_download_icon.png',
                   height: 100,
                   width: 200,
               ),
               Container(
                 width: 300,
                 child: Text(
-                  "Welcome to Treehouses Remote",
+                  "Download Treehouses Image",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -54,40 +52,27 @@ class _OnboardWidgetState extends State<OnboardWidget> {
               Container(
                 width: 350,
                 child: Text(
-                  "Communicate with Raspberry Pi over Bluetooth",
+                  "Treehouses Remote requires a Raspberry Pi running a Treehouses Image in order to function properly.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white
                   )
                 ),
               ),
-              Center(
-
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    customBorder: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(45)),
-                    onTap: () {
-                     // Navigator.pushReplacementNamed(context, Routes.search);
-                      widget.onNext();
-                    },
-                    child: Container(
-                      height: 65,
-                      width: 65,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: CustomTheme.primaryColor,
-                      ),
-                      child: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
-                        size: 45,
-                      ),
-                    ),
+              ElevatedButton(
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      )
                   ),
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),
+                  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                 ),
+                onPressed: () {
+                  launch('https://treehouses.io/#!pages/download.md');
+                },
+                child: Text('Download'),
               )
             ],
           ),
