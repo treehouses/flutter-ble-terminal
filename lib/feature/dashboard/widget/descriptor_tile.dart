@@ -25,7 +25,7 @@ class DescriptorTile extends StatelessWidget {
           Text('0x${descriptor.uuid.toString().toUpperCase().substring(4, 8)}',
               style: Theme.of(context)
                   .textTheme
-                  .bodyText1
+                  .bodyText2
                   ?.copyWith(color: Theme.of(context).textTheme.caption?.color))
         ],
       ),
