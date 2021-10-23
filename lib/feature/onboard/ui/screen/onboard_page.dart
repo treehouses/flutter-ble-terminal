@@ -14,7 +14,9 @@ class OnboardPage extends StatelessWidget {
             controller: _pageController,
             children: <Widget>[
               Container(
-                child: OnboardWidget(),
+                child: OnboardWidget((){
+                  _pageController.nextPage(duration: Duration(seconds: 1), curve: Curves.ease);
+                },),
               ),
               Container(
                 child: OnboardDownloadWidget(),
