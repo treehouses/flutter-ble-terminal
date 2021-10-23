@@ -23,7 +23,7 @@ class ServiceTile extends StatelessWidget {
           children: <Widget>[
             Text('Service'),
             Text('${service.uuid.toString()}',
-                style: Theme.of(context).textTheme.body1?.copyWith(
+                style: Theme.of(context).textTheme.bodyText2?.copyWith(
                     color: Theme.of(context).textTheme.caption?.color))
           ],
         ),
