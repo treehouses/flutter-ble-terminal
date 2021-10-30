@@ -29,7 +29,6 @@ class BluetoothCubit extends Cubit<DataState> {
     } else{
       emit(PermissionsNotGranted());
     }
-
   }
   List<int> _sendCommand(String command) {
     return utf8.encode(command);
