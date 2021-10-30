@@ -1,8 +1,9 @@
-//import 'dart:html';
+import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:treehousesble/common/bloc/bluetooth_cubit.dart';
 import 'package:treehousesble/common/bloc/bluetooth_state.dart';
 import 'package:treehousesble/feature/dashboard/screen/dashboard_page.dart';
@@ -18,12 +19,10 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  PermissionStatus _status;
 
   @override
   void initState() {
     super.initState();
-    PermissionHandlerPlatform().checkPermissionStatus(Permission.locationWhenInUse, Permission.bluetooth).then(_updateStatus);
     context.read<BluetoothCubit>()..appStart();
   }
 
@@ -33,28 +32,12 @@ class _LandingPageState extends State<LandingPage> {
       bloc: context.read<BluetoothCubit>(),
       builder: (context, state) {
         if (state is FirstTimeAppOpen) {
-          _askPermission();
+
           return OnboardPage();
         } else {
           return SearchRpiScreen();
         }
       },
     );
-  }
-
-  void _updateStatus(PermissionStatus status){
-    if (status != _status) {
-      setState(() {
-        _status = status;
-      });
-    }
-  }
-  void _askPermission() {
-    PermissionHandlerPlatform().requestPermisisons([Permission.locationWhenInUse, Permission.bluetooth]).then(_onStatusRequested);
-  }
-
-  void _onStatusRequested(Map<Permission, PermissionStatus> statuses) {
-    final status = statuses[Permission.locationWhenInUse, Permission.bluetooth];
-    _updateStatus(status);
   }
 }
