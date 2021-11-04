@@ -5,41 +5,58 @@ import 'package:treehousesble/app/theme.dart';
 class NetworkWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Text(
-                    'Network',
-                  ),
-                  Image.network('src')
-                ],
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text(
+              'Network',
+              style: TextStyle(
+                fontFamily: 'Poppins',
               ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Container(
-                      child: Image.network('src')
-                  ),
-                  Text(
-                    'Checking Network Mode.....',
-                  )
-                ],
+            ),
+            Image.asset(
+              'assets/icons/ic_wifi.png',
+              width: 30,
+              height: 30,
+              fit: BoxFit.cover,
+            )
+          ],
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Image.asset(
+              'assets/icons/ic_wifi.png',
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
+            ),
+            Text(
+              'Checking Network Mode.....',
+              style: TextStyle(
+                fontFamily: 'Poppins',
               ),
-              Text(
-                'IP Address: Checking.....'
-              ),
-              Text(
-                  'SSID: Checking.....'
-              )
-            ],
+            )
+          ],
+        ),
+        Align(
+          alignment: AlignmentDirectional(-1, 0),
+          child: Text(
+            'IP Address: Checking.....',
+            textAlign: TextAlign.start,
+          ),
+        ),
+        Align(
+          alignment: AlignmentDirectional(-1, 0),
+          child: Text(
+            'SSID: Checking.....',
+            textAlign: TextAlign.start,
           ),
         )
+      ],
     );
   }
-
 }

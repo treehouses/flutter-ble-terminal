@@ -1,15 +1,31 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:treehousesble/feature/status/widget/CLI_widget.dart';
+import 'package:treehousesble/feature/status/widget/RPI_widget.dart';
+import 'package:treehousesble/feature/status/widget/bluetooth_widget.dart';
+import 'package:treehousesble/feature/status/widget/measurables_widget.dart';
+import 'package:treehousesble/feature/status/widget/network_widget.dart';
 
-class StatusPage extends StatefulWidget {
+class StatusScreen extends StatefulWidget {
   @override
-  State<StatusPage> createState() => _StatusPageState();
+  State<StatusScreen> createState() => _StatusScreenState();
 }
 
-class _StatusPageState extends State<StatusPage>{
+class _StatusScreenState extends State<StatusScreen>{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget> [
+            BluetoothWidget(),
+            NetworkWidget(),
+            RPIWidget(),
+            MeasurableWidget()
+          ],
+        )
+      ),
+    );
   }
 
 }
