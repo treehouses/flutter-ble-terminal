@@ -19,8 +19,9 @@ class BluetoothCubit extends Cubit<DataState> {
 
   appStart() async {
     final bool firstTimeAppOpen = await SharedPref.getFirstTimeAppOpen();
-    Map<Permission, PermissionStatus> statuses = await [Permission.location, Permission.bluetooth,].request();
-    if(statuses[Permission.location] == PermissionStatus.granted){
+    if(await Permission.location.request() == PermissionStatus.granted
+        && await Permission.bluetoothScan.request() == PermissionStatus.granted
+        && await Permission.bluetoothConnect.request() == PermissionStatus.granted){
       if (firstTimeAppOpen) {
         emit(FirstTimeAppOpen());
       } else {
