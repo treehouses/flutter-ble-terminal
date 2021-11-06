@@ -1,9 +1,9 @@
 PODS:
-  - Flutter (2.5.3)
-  - flutter_blue (0.8.0):
+  - Flutter (1.0.0)
+  - flutter_blue (0.0.1):
     - Flutter
-    - flutter_blue/Protos (= 0.8.0)
-  - flutter_blue/Protos (0.8.0):
+    - flutter_blue/Protos (= 0.0.1)
+  - flutter_blue/Protos (0.0.1):
     - Flutter
     - Protobuf (~> 3.11.4)
   - package_info (0.0.1):
