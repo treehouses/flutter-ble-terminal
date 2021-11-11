@@ -92,6 +92,5 @@ post_install do |installer|
         # 'PERMISSION_CRITICAL_ALERTS=1'
       ]
 
-    end
   end
 end
