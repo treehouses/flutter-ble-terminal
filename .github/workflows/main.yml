@@ -44,6 +44,8 @@ jobs:
     - run: |
         flutter clean
         flutter pub get
-        flutter pub upgrade
+        cd ios
+        pod install
+
         
     - run: flutter build ios --release --no-codesign
