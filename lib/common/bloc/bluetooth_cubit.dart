@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:treehousesble/app/app.dart';
 import 'package:treehousesble/common/bloc/bluetooth_state.dart';
 import 'package:treehousesble/common/constants/app_constants.dart';
@@ -18,10 +19,21 @@ class BluetoothCubit extends Cubit<DataState> {
 
   appStart() async {
     final bool firstTimeAppOpen = await SharedPref.getFirstTimeAppOpen();
-    if (firstTimeAppOpen) {
-      emit(FirstTimeAppOpen());
-    } else {
-      emit(NotFirstTimeAppOpen());
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.location,
+      Permission.bluetoothScan,
+      Permission.bluetoothConnect,
+    ].request();
+    if(statuses[Permission.location] == PermissionStatus.granted
+        && statuses[Permission.bluetoothScan] == PermissionStatus.granted
+        && statuses[Permission.bluetoothConnect]  == PermissionStatus.granted){
+      if (firstTimeAppOpen) {
+        emit(FirstTimeAppOpen());
+      } else {
+        emit(NotFirstTimeAppOpen());
+      }
+    } else{
+      emit(PermissionsNotGranted());
     }
   }
   List<int> _sendCommand(String command) {
