@@ -13,11 +13,8 @@ class RPIWidget extends StatelessWidget{
             Text(
               'RPI Details',
             ),
-            Image.network(
-              'https://picsum.photos/seed/192/600',
-              width: 100,
-              height: 100,
-              fit: BoxFit.cover,
+            Icon(
+              Icons.edit,
             )
           ],
         ),

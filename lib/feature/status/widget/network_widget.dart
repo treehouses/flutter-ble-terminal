@@ -17,12 +17,9 @@ class NetworkWidget extends StatelessWidget{
                 fontFamily: 'Poppins',
               ),
             ),
-            Image.asset(
-              'assets/icons/ic_wifi.png',
-              width: 30,
-              height: 30,
-              fit: BoxFit.cover,
-            )
+            Icon(
+              Icons.language,
+            ),
           ],
         ),
         Row(

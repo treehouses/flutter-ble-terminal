@@ -26,8 +26,7 @@ class CLIWidget extends StatelessWidget{
             textAlign: TextAlign.start,
           ),
         ),
-        Expanded(
-          child: ElevatedButton(
+        ElevatedButton(
             style: ButtonStyle(
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
@@ -40,7 +39,6 @@ class CLIWidget extends StatelessWidget{
             onPressed: () {
             },
             child: Text('Refresh'),
-          )
         )
       ],
     );

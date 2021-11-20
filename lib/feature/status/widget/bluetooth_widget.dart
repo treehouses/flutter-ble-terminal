@@ -40,6 +40,7 @@ class BluetoothWidget extends StatelessWidget{
         ),
         Row(
           mainAxisSize: MainAxisSize.max,
+
           children: [
             Image.asset(
               'assets/icons/ic_bluetooth_icon.png',
