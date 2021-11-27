@@ -46,7 +46,6 @@ jobs:
         channel: 'stable' # 'dev', 'alpha', default to: 'stable'
     - run: flutter pub get
     - run: flutter build ios --release --no-codesign
-
     - run: brew install tree
     - run: |
         cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
