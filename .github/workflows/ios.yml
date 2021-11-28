@@ -48,10 +48,10 @@ jobs:
           channel: 'stable' # 'dev', 'alpha', default to: 'stable'
 
       - name: Build app
-        run: flutter pub get
-        run: flutter build ipa
-        run: brew install tree
         run: |
+            flutter pub get
+            flutter build ipa
+            brew install tree
             cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
             tree
             ls -al
