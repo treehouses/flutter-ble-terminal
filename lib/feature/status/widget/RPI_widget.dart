@@ -5,6 +5,7 @@ class RPIWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.max,
       children: [
         Row(
@@ -12,42 +13,54 @@ class RPIWidget extends StatelessWidget{
           children: [
             Text(
               'RPI Details',
+              style: TextStyle(
+                fontWeight: FontWeight.bold
+              ),
             ),
             Icon(
               Icons.edit,
             )
           ],
         ),
-        Align(
-          alignment: AlignmentDirectional(0, 0),
-          child: Text(
-            'Hostname: Checking..',
-            textAlign: TextAlign.start,
+        Container(
+          decoration: BoxDecoration(
+            color: Color(0xFFF5F5F5),
+            borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
-        ),
-        Align(
-          alignment: AlignmentDirectional(0, 0),
-          child: Text(
-            'Model: Checking..',
-            textAlign: TextAlign.start,
-          ),
-        ),
-        Align(
-          alignment: AlignmentDirectional(0, 0),
-          child: Text(
-            'CPU: Checking..',
-          ),
-        ),
-        Align(
-          alignment: AlignmentDirectional(0, 0),
-          child: Text(
-            'Image Version: Checking..',
-          ),
-        ),
-        Align(
-          alignment: AlignmentDirectional(0, 0),
-          child: Text(
-            'Remote Version: Checking',
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Hostname: Checking..',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold
+                )
+              ),
+              Text(
+                'Model: Checking..',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+              Text(
+                'CPU: Checking..',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+              Text(
+                'Image Version: Checking..',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+              Text(
+                'Remote Version: Checking',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ],
           ),
         )
       ],

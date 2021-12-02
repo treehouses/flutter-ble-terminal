@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:treehousesble/app/theme.dart';
 
 class BluetoothWidget extends StatelessWidget{
@@ -14,7 +15,7 @@ class BluetoothWidget extends StatelessWidget{
             Text(
               'Bluetooth',
               style: TextStyle(
-                fontFamily: 'Poppins',
+                fontWeight: FontWeight.bold
               ),
             ),
             Expanded(
@@ -38,24 +39,29 @@ class BluetoothWidget extends StatelessWidget{
             )
           ],
         ),
-        Row(
-          mainAxisSize: MainAxisSize.max,
-
-          children: [
-            Image.asset(
-              'assets/icons/ic_bluetooth_icon.png',
-              width: 50,
-              height: 50,
-              fit: BoxFit.cover,
+          Container(
+            decoration: BoxDecoration(
+              color: Color(0xFFF5F5F5),
+              borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
-            Text(
-              'Bluetooth RPI Connection: Checking.....',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-              ),
-            )
-          ],
-        )
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Image.asset(
+                  'assets/icons/ic_bluetooth_icon.png',
+                  width: 50,
+                  height: 50,
+                  fit: BoxFit.cover,
+                ),
+                Text(
+                  'Bluetooth RPI Connection: Checking.....',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                  ),
+                )
+              ],
+            ),
+          )
       ],
     );
   }

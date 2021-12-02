@@ -18,15 +18,31 @@ class _StatusScreenState extends State<StatusScreen>{
       body: SingleChildScrollView(
         child: Column(
           children: <Widget> [
-            BluetoothWidget(),
-            NetworkWidget(),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: BluetoothWidget(),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: NetworkWidget(),
+            ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                RPIWidget(),
-                CLIWidget()
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: RPIWidget(),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: CLIWidget(),
+                )
               ],
             ),
-            MeasurableWidget()
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: MeasurableWidget(),
+            )
           ],
         )
       ),

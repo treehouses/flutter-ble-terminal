@@ -14,7 +14,7 @@ class NetworkWidget extends StatelessWidget{
             Text(
               'Network',
               style: TextStyle(
-                fontFamily: 'Poppins',
+                fontWeight: FontWeight.bold
               ),
             ),
             Icon(
@@ -22,35 +22,45 @@ class NetworkWidget extends StatelessWidget{
             ),
           ],
         ),
-        Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Image.asset(
-              'assets/icons/ic_wifi.png',
-              width: 50,
-              height: 50,
-              fit: BoxFit.cover,
-            ),
-            Text(
-              'Checking Network Mode.....',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-              ),
-            )
-          ],
-        ),
-        Align(
-          alignment: AlignmentDirectional(-1, 0),
-          child: Text(
-            'IP Address: Checking.....',
-            textAlign: TextAlign.start,
+        Container(
+          decoration: BoxDecoration(
+            color: Color(0xFFF5F5F5),
+            borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
-        ),
-        Align(
-          alignment: AlignmentDirectional(-1, 0),
-          child: Text(
-            'SSID: Checking.....',
-            textAlign: TextAlign.start,
+          child: Column(
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Image.asset(
+                    'assets/icons/ic_wifi.png',
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.cover,
+                  ),
+                  Text(
+                    'Checking Network Mode.....',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                    ),
+                  )
+                ],
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  'IP Address: Checking.....',
+                  textAlign: TextAlign.start,
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1, 0),
+                child: Text(
+                  'SSID: Checking.....',
+                  textAlign: TextAlign.start,
+                ),
+              ),
+            ],
           ),
         )
       ],
