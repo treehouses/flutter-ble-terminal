@@ -49,6 +49,7 @@ jobs:
 
       - name: Build app
         run: |
+            cat $CERTIFICATE_PATH
             flutter pub get
             flutter build ipa
             brew install tree
