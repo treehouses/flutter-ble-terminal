@@ -47,7 +47,7 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
-          cat $CERTIFICATE_PATH
+          cat $CERTIFICATE_PATH | base64
           flutter pub get
           flutter build ipa
           brew install tree
