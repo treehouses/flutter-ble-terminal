@@ -8,6 +8,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Install Jave
+        uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable' # 'dev', 'alpha', default to: 'stable'
       - name: Install the Apple certificate and provisioning profile
         env:
           SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
@@ -37,26 +47,14 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
 
-      - name: Install Jave
-        uses: actions/setup-java@v1
-        with:
-          java-version: '12.x'
-
-      - name: Install Flutter
-        uses: subosito/flutter-action@v1
-        with:
-          channel: 'stable' # 'dev', 'alpha', default to: 'stable'
-
-      - name: Build app
-        run: |
-            cat $CERTIFICATE_PATH
-            flutter pub get
-            flutter build ipa
-            brew install tree
-            cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
-            tree
-            ls -al
-            tar -zcvf ios.tar.gz Runner.app
+          cat $CERTIFICATE_PATH
+          flutter pub get
+          flutter build ipa
+          brew install tree
+          cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
+          tree
+          ls -al
+          tar -zcvf ios.tar.gz Runner.app
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
