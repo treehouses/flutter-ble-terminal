@@ -15,10 +15,13 @@ class MeasurableWidget extends StatelessWidget{
           Row(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Text(
-                'Memory',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text(
+                  'Memory',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
               ),
               Text(
@@ -29,10 +32,13 @@ class MeasurableWidget extends StatelessWidget{
           Row(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Text(
-                'Storage',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text(
+                  'Storage',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
               ),
               Text(
@@ -43,10 +49,13 @@ class MeasurableWidget extends StatelessWidget{
           Row(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Text(
-                'Temperature',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text(
+                  'Temperature',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
               ),
               Text(
