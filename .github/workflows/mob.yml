@@ -1,7 +1,7 @@
 name: Manual Mob Madness
 
 on:
-  push:
+  release:
 
 jobs:
   apk:
