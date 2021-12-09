@@ -17,6 +17,12 @@ jobs:
       with:
         channel: 'stable' 
         flutter-version: '2.2.0' 
+
+    - run: |
+        flutter clean
+        flutter pub get
+        flutter pub upgrade
+
     - run: flutter build apk --no-sound-null-safety
 
     - name: Run MobSF
