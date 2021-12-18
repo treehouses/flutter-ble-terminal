@@ -88,7 +88,7 @@ jobs:
                                          OYCwFFxq7JOGHONyiXTVK3kZehY74pXsCrIMMU4wJwYJKoZIhvcNAQkUMRoeGABS
                                          AG8AcwBoAGEAbgAgAFIAaQBqAGEAbDAjBgkqhkiG9w0BCRUxFgQUk3eV49paF90k
                                          p+L5VEjBzZVTiEAwMDAhMAkGBSsOAwIaBQAEFMrKntNf5CY9qtmU0tQeXknfpKBF
-                                         BAgjSSzVUs1rKgIBAQ==
+                                         BAgjSSzVUs1rKgIBAQ=="
           SIGNING_CERTIFICATE_PASSWORD: "12345"
           BUILD_PROVISION_PROFILE_BASE64: "MIIwYwYJKoZIhvcNAQcCoIIwVDCCMFACAQExCzAJBgUrDgMCGgUAMIIg9gYJKoZI
                                            hvcNAQcBoIIg5wSCIOM8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYt
