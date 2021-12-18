@@ -378,10 +378,10 @@ jobs:
           flutter pub get
           flutter build ipa
           brew install tree
-          cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos
+          cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/archive/
           tree
           ls -al
-          tar -zcvf ios.tar.gz Runner.app
+#          tar -zcvf ios.tar.gz Runner.xcarchive.
 
 
 
@@ -389,7 +389,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/iphoneos/*
+          file: /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/archive/*
           tag: ${{ github.ref }}
           overwrite: true
           file_glob: true
