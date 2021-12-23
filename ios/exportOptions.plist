@@ -6,10 +6,5 @@
         <string>ad-hoc</string>
         <key>teamID</key>
         <string>M62639WUL7</string>
-        <key>provisioningProfiles</key>
-        <dict>
-            <key>treehouses.remoteii</key>
-            <string>githubaction</string>
-        </dict>
     </dict>
 </plist>
