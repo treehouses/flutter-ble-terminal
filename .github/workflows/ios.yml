@@ -381,7 +381,9 @@ jobs:
           cd /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/build/ios/archive/
           tree
           ls -al
-#          tar -zcvf ios.tar.gz Runner.xcarchive.
+#          xcodebuild -exportArchive -archivePath Runner.xcarchive -exportOptionsPlist exportOptions.plist -exportPath $PWD/Runner.ipa
+
+          tar -zcvf ios.tar.gz Runner.xcarchive.
 
 
 
