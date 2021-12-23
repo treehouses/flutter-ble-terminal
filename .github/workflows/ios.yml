@@ -384,7 +384,7 @@ jobs:
           ls -al
           # xcodebuild -exportArchive -archivePath ./Runner.xcarchive -exportOptionsPlist /Users/runner/work/flutter-ble-terminal/flutter-ble-terminal/ios/exportOptions.plist -exportPath "./" -allowProvisioningUpdates
           cd ..
-          tar -zcvf ios.tar.gz archive
+          tar -zcvf archive/ios.tar.gz archive
 
 
       - name: Upload binaries to release
