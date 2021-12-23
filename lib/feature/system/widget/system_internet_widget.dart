@@ -5,15 +5,15 @@ class SystemInternetWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        InkWell(
-          child: Text("Share Internet With Pi (beta)",),
-          onTap: () {
-
-          },
+        ExpansionTile(
+          title: Container(
+            child: Text("Share Internet With Pi (beta)",),
+          )
         ),
-        InkWell(
-          child: Text("Internet Blocking"),
-          onTap: () {},
+        ExpansionTile(
+          title: Container(
+            child: Text("Internet Blocking"),
+          )
         ),
       ],
     );

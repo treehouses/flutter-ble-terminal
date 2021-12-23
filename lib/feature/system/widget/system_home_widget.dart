@@ -5,19 +5,60 @@ class SystemHomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        InkWell(
-          child: Text("Shutdown & Reboot",),
-          onTap: () {
+        ExpansionTile(
+          title: Container(
+            child: Text("Shutdown & Reboot",),
+          ),
+          children: <Widget>[
 
-          },
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    Image.asset(
+                      'assets/icons/shutdown.png',
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.cover,
+                    ),
+                    Text(
+                      'Shutdown',
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Image.asset(
+                      'assets/icons/restart.png',
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.cover,
+                    ),
+                    Text(
+                      'Reboot',
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ]
         ),
-        InkWell(
-          child: Text("Open VNC"),
-          onTap: () {},
+        ExpansionTile(
+          title: Container(
+            child: Text("Open VNC"),
+          ),
+          children: <Widget>[
+
+          ]
         ),
-        InkWell(
-          child: Text("Toggle Camera"),
-          onTap: () {},
+        ExpansionTile(
+          title: Container(
+            child: Text("Toggle Camera"),
+          ),
+          children: <Widget>[
+
+          ]
         ),
       ],
     );
