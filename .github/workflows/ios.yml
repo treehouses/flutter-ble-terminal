@@ -382,7 +382,6 @@ jobs:
           tree
           ls -al
 #          xcodebuild -exportArchive -archivePath Runner.xcarchive -exportOptionsPlist exportOptions.plist -exportPath $PWD/Runner.ipa
-
           tar -zcvf ios.tar.gz Runner.xcarchive.
 
 
