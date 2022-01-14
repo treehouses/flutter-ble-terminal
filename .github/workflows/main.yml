@@ -23,6 +23,8 @@ jobs:
         flutter pub get
         flutter pub upgrade
 
+    - run: gradle wrapper
+
     - uses: victorbnl/build-signed-apk@main
       with:
         keystore: ${{ secrets.KEYSTORE }}
