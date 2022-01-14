@@ -24,10 +24,10 @@ jobs:
           ALIAS_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
     - run: |
-      flutter clean
-      echo $KEY_JKS > key.jks
-      flutter pub get
-      flutter pub upgrade
+        flutter clean
+        echo $KEY_JKS > key.jks
+        flutter pub get
+        flutter pub upgrade
     
     - run: flutter build apk --release #--no-sound-null-safety
 
