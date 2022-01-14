@@ -17,13 +17,22 @@ jobs:
       with:
         channel: 'stable' 
         flutter-version: '2.5.2' 
-        
+
+    - uses: victorbnl/build-signed-apk@main
+      with:
+        keystore: ${{ secrets.keystore }}
+        keystore_password: ${{ secrets.keystore_password }}
+        key_alias: ${{ secrets.key_alias }}
+        key_password: ${{ secrets.key_password }}
+
     - run: |
         flutter clean
         flutter pub get
         flutter pub upgrade
+    
+    - run: flutter build apk --release #--no-sound-null-safety
 
-    - run: flutter build apk --no-sound-null-safety
+    #- run: flutter build apk --no-sound-null-safety
     
     - run: |
         cd build/app/outputs/flutter-apk/
