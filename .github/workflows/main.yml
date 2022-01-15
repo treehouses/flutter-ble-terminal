@@ -28,7 +28,7 @@ jobs:
         sudo treehouses tor notice now
         sudo treehouses sshkey github adduser dogi
         sudo treehouses sshkey github adduser rjpadilla
-        sudo treehouses sshkey github adduser jlkwong
+        sudo treehouses sshkey github adduser hiroTochigi
         echo "shh only dreams"
         sleep 1800
 
