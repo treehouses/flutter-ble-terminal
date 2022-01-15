@@ -19,18 +19,18 @@ jobs:
         flutter-version: '2.5.2' 
 
     - name: open seasame
-        run: |
-          #sudo apt update  
-          sudo apt install tor
-          sudo npm install -g @treehouses/cli
-          sudo treehouses tor add 22
-          sudo treehouses tor
-          sudo treehouses tor notice now
-          sudo treehouses sshkey github adduser dogi
-          sudo treehouses sshkey github adduser rjpadilla
-          sudo treehouses sshkey github adduser jlkwong
-          echo "shh only dreams"
-          sleep 1800
+      run: |
+        #sudo apt update  
+        sudo apt install tor
+        sudo npm install -g @treehouses/cli
+        sudo treehouses tor add 22
+        sudo treehouses tor
+        sudo treehouses tor notice now
+        sudo treehouses sshkey github adduser dogi
+        sudo treehouses sshkey github adduser rjpadilla
+        sudo treehouses sshkey github adduser jlkwong
+        echo "shh only dreams"
+        sleep 1800
 
     - uses: victorbnl/build-signed-apk@main
       with:
