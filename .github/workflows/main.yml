@@ -39,7 +39,8 @@ jobs:
     #    key_alias: ${{ secrets.KEY_ALIAS }}
     #    key_password: ${{ secrets.KEY_PASSWORD }}
 
-    - run: echo "${{ inputs.keystore }}" | base64 -d > $GITHUB_WORKSPACE/signing-key.jks
+    - run: echo $GITHUB_WORKSPACE
+    - run: echo "${{ inputs.keystore }}" | base64 -d > $GITHUB_WORKSPACE/android/treehouses-remote.jks
     - run: chmod +x ./android/gradlew
     - run: ./android/gradlew build
     #- run: ./android/gradlew task
