@@ -23,22 +23,6 @@ jobs:
         ALIAS_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
         KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
 
-    
-
-    #- name: open seasame
-    #  run: |
-    #    #sudo apt update  
-    #    sudo apt install tor
-    #    sudo npm install -g @treehouses/cli
-    #    sudo treehouses tor add 22
-    #    sudo treehouses tor
-    #    sudo treehouses tor notice now
-    #    sudo treehouses sshkey github adduser dogi
-    #    sudo treehouses sshkey github adduser rjpadilla
-    #    sudo treehouses sshkey github adduser hiroTochigi
-    #    echo "shh only dreams"
-    #    sleep 1800
-
     #- uses: victorbnl/build-signed-apk@main
     #  with:
     #    keystore: ${{ secrets.KEYSTORE }}
@@ -47,18 +31,20 @@ jobs:
     #    key_password: ${{ secrets.KEY_PASSWORD }}
 
     - run: echo "${{ secrets.KEYSTORE }}" | base64 -d > $GITHUB_WORKSPACE/android/treehouses-remote.jks
-    #- run: echo "${{ secrets.KEYSTORE }}" > $GITHUB_WORKSPACE/android/treehouses-remote.jks
-    - run: echo $System.env.ALIAS_PASSWORD
 
-    #- run: chmod +x ./android/gradlew
-    #- run: ./android/gradlew build
-    #- run: ./android/gradlew task
-
-    #- run: ./android/gradlew assembleRelease
-    #    -Pandroid.injected.signing.store.file=$GITHUB_WORKSPACE/android/treehouses-remote.jks 
-    #    -Pandroid.injected.signing.store.password=${{ secrets.keystore_password }} 
-    #    -Pandroid.injected.signing.key.alias=${{ secrets.key_alias }} 
-    #    -Pandroid.injected.signing.key.password=${{ secrets.key_password }}
+    - name: open seasame
+      run: |
+        #sudo apt update  
+        sudo apt install tor
+        sudo npm install -g @treehouses/cli
+        sudo treehouses tor add 22
+        sudo treehouses tor
+        sudo treehouses tor notice now
+        sudo treehouses sshkey github adduser dogi
+        sudo treehouses sshkey github adduser rjpadilla
+        sudo treehouses sshkey github adduser hiroTochigi
+        echo "shh only dreams"
+        sleep 1800
 
     - run: |
         flutter clean
