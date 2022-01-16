@@ -39,22 +39,24 @@ jobs:
     #    key_alias: ${{ secrets.KEY_ALIAS }}
     #    key_password: ${{ secrets.KEY_PASSWORD }}
 
-    
+    - run: echo "${{ secrets.keystore }}"
     - run: echo "${{ secrets.keystore }}" | base64 -d > $GITHUB_WORKSPACE/android/treehouses-remote.jks
-   
+    - run: chmod +x ./android/gradlew
+    - run: ./android/gradlew build
+    #- run: ./android/gradlew task
 
-    #- run: ./android/gradlew assembleRelease
-    #    -Pandroid.injected.signing.store.file=$GITHUB_WORKSPACE/signing-key.jks 
-    #    -Pandroid.injected.signing.store.password=${{ inputs.keystore_password }} 
-    #    -Pandroid.injected.signing.key.alias=${{ inputs.key_alias }} 
-    #    -Pandroid.injected.signing.key.password=${{ inputs.key_password }}
+    - run: ./android/gradlew assembleRelease
+        -Pandroid.injected.signing.store.file=$GITHUB_WORKSPACE/android/treehouses-remote.jks 
+        -Pandroid.injected.signing.store.password=${{ secrets.keystore_password }} 
+        -Pandroid.injected.signing.key.alias=${{ secrets.key_alias }} 
+        -Pandroid.injected.signing.key.password=${{ secrets.key_password }}
 
-    - run: |
-        flutter clean
-        flutter pub get
-        flutter pub upgrade
-    
-    - run: flutter build apk --release #--no-sound-null-safety
+    #- run: |
+    #    flutter clean
+    #    flutter pub get
+    #    flutter pub upgrade
+    #
+    #- run: flutter build apk --release #--no-sound-null-safety
 
     #- run: flutter build apk --no-sound-null-safety
     
