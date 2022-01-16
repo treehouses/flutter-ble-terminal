@@ -39,7 +39,7 @@ jobs:
     #    key_alias: ${{ secrets.KEY_ALIAS }}
     #    key_password: ${{ secrets.KEY_PASSWORD }}
 
-    - run: echo "${{ seacrets.keystore }}"
+    
     - run: echo "${{ seacrets.keystore }}" | base64 -d > $GITHUB_WORKSPACE/android/treehouses-remote.jks
    
 
