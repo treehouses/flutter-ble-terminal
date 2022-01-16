@@ -45,7 +45,7 @@ jobs:
     #    key_password: ${{ secrets.KEY_PASSWORD }}
 
     #- run: echo "${{ secrets.KEYSTORE }}" | base64 -d > $GITHUB_WORKSPACE/android/treehouses-remote.jks
-    - run: echo "${{ secrets.KEYSTORE }}" | base64 -d > $GITHUB_WORKSPACE/android/treehouses-remote.jks
+    - run: echo "${{ secrets.KEYSTORE }}" > $GITHUB_WORKSPACE/android/treehouses-remote.jks
     
 
     #- run: chmod +x ./android/gradlew
