@@ -23,6 +23,8 @@ jobs:
         ALIAS_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
         KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
 
+    - run echo $System.env.ALIAS_PASSWORD
+
     #- name: open seasame
     #  run: |
     #    #sudo apt update  
