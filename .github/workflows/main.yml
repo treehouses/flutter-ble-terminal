@@ -32,12 +32,22 @@ jobs:
     #    echo "shh only dreams"
     #    sleep 1800
 
-    - uses: victorbnl/build-signed-apk@main
-      with:
-        keystore: ${{ secrets.KEYSTORE }}
-        keystore_password: ${{ secrets.KEYSTORE_PASSWORD }}
-        key_alias: ${{ secrets.KEY_ALIAS }}
-        key_password: ${{ secrets.KEY_PASSWORD }}
+    #- uses: victorbnl/build-signed-apk@main
+    #  with:
+    #    keystore: ${{ secrets.KEYSTORE }}
+    #    keystore_password: ${{ secrets.KEYSTORE_PASSWORD }}
+    #    key_alias: ${{ secrets.KEY_ALIAS }}
+    #    key_password: ${{ secrets.KEY_PASSWORD }}
+
+    - run: echo "${{ inputs.keystore }}" | base64 -d > $GITHUB_WORKSPACE/signing-key.jks
+    - run: chmod +x ./android/gradlew
+    - run: ./android/gradlew build
+
+    - run: ./android/gradlew assembleRelease
+        -Pandroid.injected.signing.store.file=$GITHUB_WORKSPACE/signing-key.jks 
+        -Pandroid.injected.signing.store.password=${{ inputs.keystore_password }} 
+        -Pandroid.injected.signing.key.alias=${{ inputs.key_alias }} 
+        -Pandroid.injected.signing.key.password=${{ inputs.key_password }}
 
     - run: |
         flutter clean
