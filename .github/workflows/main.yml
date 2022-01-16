@@ -23,7 +23,7 @@ jobs:
         ALIAS_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
         KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
 
-    - run echo $System.env.ALIAS_PASSWORD
+    
 
     #- name: open seasame
     #  run: |
@@ -48,7 +48,7 @@ jobs:
 
     - run: echo "${{ secrets.KEYSTORE }}" | base64 -d > $GITHUB_WORKSPACE/android/treehouses-remote.jks
     #- run: echo "${{ secrets.KEYSTORE }}" > $GITHUB_WORKSPACE/android/treehouses-remote.jks
-    
+    - run: echo $System.env.ALIAS_PASSWORD
 
     #- run: chmod +x ./android/gradlew
     #- run: ./android/gradlew build
