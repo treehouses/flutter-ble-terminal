@@ -41,11 +41,11 @@ jobs:
 
     - run: echo "${{ secrets.KEYSTORE }}" | base64 -d > $GITHUB_WORKSPACE/android/treehouses-remote.jks
     
-    env:
-      KEY_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-      ALIAS_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
-      KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-      
+    - env:
+        KEY_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+        ALIAS_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
+        KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+
     #- run: chmod +x ./android/gradlew
     #- run: ./android/gradlew build
     #- run: ./android/gradlew task
