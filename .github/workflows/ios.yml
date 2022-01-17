@@ -1,5 +1,10 @@
 name: App build
-on: push
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
 
 jobs:
   build_with_signing:
