@@ -1,7 +1,7 @@
 name: Release
 
 on:
-  push:
+  release:
 
 jobs:
   apk:
@@ -16,19 +16,20 @@ jobs:
       with:
         channel: 'stable'
 
-    - run: |
+    - name: Make Key.properties and JKS File
+      run: |
         echo keyPassword=\${{ secrets.KEY_PASSWORD }} > $GITHUB_WORKSPACE/android/key.properties
         echo storePassword=\${{ secrets.KEYSTORE_PASSWORD }} >> $GITHUB_WORKSPACE/android/key.properties
         echo keyAlias=\${{ secrets.KEY_ALIAS }} >> $GITHUB_WORKSPACE/android/key.properties
+        echo "${{ secrets.KEYSTORE }}" | base64 -d > $GITHUB_WORKSPACE/android/treehouses-remote.jks
 
-    - run: echo "${{ secrets.KEYSTORE }}" | base64 -d > $GITHUB_WORKSPACE/android/treehouses-remote.jks
-
-    - run: |
+    - name: Build Signed APK
+      run: |
         flutter clean
         flutter pub get
         flutter pub upgrade
+        flutter build apk --release
 
-    - run: flutter build apk --release #--no-sound-null-safety
     - run: cd build/app/outputs && tree
     - run: |
         cd build/app/outputs/flutter-apk/
