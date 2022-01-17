@@ -15,13 +15,19 @@ jobs:
     - uses: subosito/flutter-action@v1
       with:
         channel: 'stable'
-    - uses: victorbnl/build-signed-apk@main
-      with:
-        keystore: ${{ secrets.keystore }}
-        keystore_password: ${{ secrets.keystore_password }}
-        key_alias: ${{ secrets.key_alias }}
-        key_password: ${{ secrets.key_password }}
-    - run: flutter pub get
+
+    - run: |
+        echo keyPassword=\${{ secrets.KEY_PASSWORD }} > $GITHUB_WORKSPACE/android/key.properties
+        echo storePassword=\${{ secrets.KEYSTORE_PASSWORD }} >> $GITHUB_WORKSPACE/android/key.properties
+        echo keyAlias=\${{ secrets.KEY_ALIAS }} >> $GITHUB_WORKSPACE/android/key.properties
+
+    - run: echo "${{ secrets.KEYSTORE }}" | base64 -d > $GITHUB_WORKSPACE/android/treehouses-remote.jks
+
+    - run: |
+        flutter clean
+        flutter pub get
+        flutter pub upgrade
+
     - run: flutter build apk --release #--no-sound-null-safety
     - run: cd build/app/outputs && tree
     - run: |
