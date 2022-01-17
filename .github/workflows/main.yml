@@ -23,28 +23,12 @@ jobs:
         ALIAS_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
         KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
 
-    #- uses: victorbnl/build-signed-apk@main
-    #  with:
-    #    keystore: ${{ secrets.KEYSTORE }}
-    #    keystore_password: ${{ secrets.KEYSTORE_PASSWORD }}
-    #    key_alias: ${{ secrets.KEY_ALIAS }}
-    #    key_password: ${{ secrets.KEY_PASSWORD }}
+    - run: |
+        echo keyPassword=\${{ secrets.ALIAS_PASSWORD }} > $GITHUB_WORKSPACE/android/key.properties
+        echo storePassword=\${{ secrets.KEYSTORE_PASSWORD }} >> $GITHUB_WORKSPACE/android/key.properties
+        echo keyAlias=\${{ secrets.KEY_ALIAS }} >> $GITHUB_WORKSPACE/android/key.properties
 
     - run: echo "${{ secrets.KEYSTORE }}" | base64 -d > $GITHUB_WORKSPACE/android/treehouses-remote.jks
-
-    - name: open seasame
-      run: |
-        #sudo apt update  
-        sudo apt install tor
-        sudo npm install -g @treehouses/cli
-        sudo treehouses tor add 22
-        sudo treehouses tor
-        sudo treehouses tor notice now
-        sudo treehouses sshkey github adduser dogi
-        sudo treehouses sshkey github adduser rjpadilla
-        sudo treehouses sshkey github adduser hiroTochigi
-        echo "shh only dreams"
-        sleep 1800
 
     - run: |
         flutter clean
