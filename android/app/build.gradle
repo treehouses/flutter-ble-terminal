@@ -50,10 +50,10 @@ android {
 
     signingConfigs {
         release {
-            storeFile keystoreProperties['storeFile'] ? keystoreProperties['storeFile'] : file("../treehouses-remote.jks")
-            storePassword keystoreProperties['storePassword'] ? keystoreProperties['storePassword'] : "$System.env.ALIAS_PASSWORD"
-            keyAlias = keystoreProperties['keyAlias'] ? keystoreProperties['keyAlias'] : "$System.env.KEY_ALIAS"
-            keyPassword = keystoreProperties['keyPassword'] ? keystoreProperties['keyPassword'] : "$System.env.KEY_PASSWORD"
+            storeFile file("../treehouses-remote.jks")
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
         }
     }
     buildTypes {
