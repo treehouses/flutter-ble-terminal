@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 class SystemSSHWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
-        InkWell(
-          child: Text("Add SSH Key",),
-          onTap: () {
-
-          },
+        ExpansionTile(
+            title: Container(
+                child: Text("Add SSH Key",)
+            )
         ),
-        InkWell(
-          child: Text("SSH 2 Factor Authentication"),
-          onTap: () {},
+        ExpansionTile(
+            title: Container(
+                child: Text("SSH 2 Factor Authentication")
+            )
         ),
       ],
     );
