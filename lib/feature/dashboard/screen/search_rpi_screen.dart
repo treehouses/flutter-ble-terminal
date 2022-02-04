@@ -45,7 +45,8 @@ class _SearchRpiScreenState extends State<SearchRpiScreen> {
               ),
               body: BlocConsumer<BluetoothCubit, DataState>(
                 listener: (con, state) {
-                  if (state is StateDeviceConnected) {
+                  bool isActive = ModalRoute.of(context)?.isCurrent ?? false;
+                  if (state is StateDeviceConnected && isActive) {
                     Navigator.of(con).pushNamed(Routes.dashboard);
                   }
                 },
