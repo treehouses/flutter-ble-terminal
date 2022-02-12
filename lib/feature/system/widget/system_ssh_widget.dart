@@ -34,7 +34,10 @@ class SystemSSHWidget extends StatelessWidget {
                                 child: TextFormField(
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    hintText: 'My Key',focusedBorder: UnderlineInputBorder(
+                                    hintText: 'My Key',
+                                    isDense: true,
+                                    contentPadding: EdgeInsets.fromLTRB(5, 1, 5, 5),
+                                    focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Colors.black45,
                                       width: 1,
@@ -110,7 +113,10 @@ class SystemSSHWidget extends StatelessWidget {
                                 child: TextFormField(
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    hintText: 'pi',focusedBorder: UnderlineInputBorder(
+                                    hintText: 'pi',
+                                    isDense: true,
+                                    contentPadding: EdgeInsets.fromLTRB(5, 1, 5, 5),
+                                    focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Colors.black45,
                                       width: 1,

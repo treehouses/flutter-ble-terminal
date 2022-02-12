@@ -18,19 +18,25 @@ class ShareInternetWidget extends StatelessWidget{
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      child: Text(
-                        'Share Internet Using a USB Cable',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        child: Text(
+                          'Share Internet Using a USB Cable',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold
+                          ),
                         ),
                       ),
                     ),
                   ),
-                  Text(
-                    'Connect this device to Pi using a USB Cable. Use the Configure button to enable USB Tethering in Settings to start the connection.',
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 0),
+                    child: Text(
+                      'Connect this device to Pi using a USB Cable. Use the Configure button to enable USB Tethering in Settings to start the connection.',
+                    ),
                   ),
                   ElevatedButton(
                     style: ButtonStyle(
@@ -46,40 +52,52 @@ class ShareInternetWidget extends StatelessWidget{
                     },
                     child: Text('CONFIGURE'),
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      child: Text(
-                        'Share Internet Using WiFi',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        child: Text(
+                          'Share Internet Using WiFi',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold
+                          ),
                         ),
                       ),
                     ),
                   ),
-                  Text(
-                    'Use the Configure button to enable Mobile Hotspot in Settings and to edit the Hotspot Name and Password. Enter those details below to start the connection.',
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 0),
+                    child: Text(
+                      'Use the Configure button to enable Mobile Hotspot in Settings and to edit the Hotspot Name and Password. Enter those details below to start the connection.',
+                    ),
                   ),
-                  TextFormField(
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      hintText: 'Hotspot Name',
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.black45,
-                          width: 1,
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: TextFormField(
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        hintText: 'Hotspot Name',
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.black45,
+                            width: 1,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                  TextFormField(
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      hintText: 'Password',
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.black45,
-                          width: 1,
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: TextFormField(
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        hintText: 'Password',
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.black45,
+                            width: 1,
+                          ),
                         ),
                       ),
                     ),
