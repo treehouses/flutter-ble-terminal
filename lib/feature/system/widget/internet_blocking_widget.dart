@@ -25,38 +25,47 @@ class _InternetBlockingWidgetState extends State<InternetBlockingWidget> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      child: Text(
-                        'Blocking Nothing',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        child: Text(
+                          'Blocking Nothing',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        'Blocker Disabled',
-                      ),
-                      Slider(
-                        activeColor: Color(0x3474e0),
-                        inactiveColor: Color(0xFF9E9E9E),
-                        min: 0,
-                        max: 10,
-                        value: sliderValue,
-                        onChanged: (newValue) {
-                          setState(() {
-                            sliderValue = newValue;
-                          });
-                        },
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Blocker Disabled',
+                        ),
+                        Slider(
+                          activeColor: Color(0x3474e0),
+                          inactiveColor: Color(0xFF9E9E9E),
+                          min: 0,
+                          max: 10,
+                          value: sliderValue,
+                          onChanged: (newValue) {
+                            setState(() {
+                              sliderValue = newValue;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
                   ),
-                  Text(
-                    'Move slider to change blocking',
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
+                    child: Text(
+                      'Move slider to change blocking',
+                    ),
                   ),
                 ],
               )
