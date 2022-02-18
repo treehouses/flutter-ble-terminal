@@ -29,8 +29,7 @@ class _LandingPageState extends State<LandingPage> {
         if (state is FirstTimeAppOpen) {
           return OnboardPage();
         } else {
-          //return SearchRpiScreen();
-          return SystemScreen();
+          return SearchRpiScreen();
         }
       },
     );
