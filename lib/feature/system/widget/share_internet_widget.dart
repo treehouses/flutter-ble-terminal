@@ -33,7 +33,7 @@ class ShareInternetWidget extends StatelessWidget{
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 0),
+                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
                     child: Text(
                       'Connect this device to Pi using a USB Cable. Use the Configure button to enable USB Tethering in Settings to start the connection.',
                     ),
@@ -73,11 +73,13 @@ class ShareInternetWidget extends StatelessWidget{
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
                     child: TextFormField(
                       obscureText: false,
                       decoration: InputDecoration(
                         hintText: 'Hotspot Name',
+                        isDense: true,
+                        contentPadding: EdgeInsets.fromLTRB(5, 1, 5, 5),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.black45,
@@ -88,11 +90,13 @@ class ShareInternetWidget extends StatelessWidget{
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
                     child: TextFormField(
                       obscureText: false,
                       decoration: InputDecoration(
                         hintText: 'Password',
+                        isDense: true,
+                        contentPadding: EdgeInsets.fromLTRB(5, 1, 5, 5),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.black45,
@@ -102,19 +106,22 @@ class ShareInternetWidget extends StatelessWidget{
                       ),
                     ),
                   ),
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          )
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            )
+                        ),
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                       ),
-                      backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                      foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                      onPressed: () {
+                      },
+                      child: Text('CONNECT TO MOBILE HOTSPOT'),
                     ),
-                    onPressed: () {
-                    },
-                    child: Text('CONNECT TO MOBILE HOTSPOT'),
                   )
                 ],
               )
