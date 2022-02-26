@@ -35,45 +35,36 @@ class SystemSSHWidget extends StatelessWidget {
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: 'My Key',
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1,
-                                      ),
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(4.0),
-                                        topRight: Radius.circular(4.0),
-                                      ),
-                                    ),
+                                    isDense: true,
+                                    contentPadding: EdgeInsets.fromLTRB(5, 1, 5, 5),
                                     focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1,
-                                      ),
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(4.0),
-                                        topRight: Radius.circular(4.0),
-                                      ),
+                                    borderSide: BorderSide(
+                                      color: Colors.black45,
+                                      width: 1,
                                     ),
+                                  ),
                                   ),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                )
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )
+                              ),
+                              backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                              foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                             ),
-                            backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                            foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                            onPressed: () {
+                            },
+                            child: Text('SAVE KEY'),
                           ),
-                          onPressed: () {
-                          },
-                          child: Text('SAVE KEY'),
                         )
                       ],
                     ),
@@ -126,79 +117,70 @@ class SystemSSHWidget extends StatelessWidget {
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: 'pi',
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1,
-                                      ),
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(4.0),
-                                        topRight: Radius.circular(4.0),
-                                      ),
-                                    ),
+                                    isDense: true,
+                                    contentPadding: EdgeInsets.fromLTRB(5, 1, 5, 5),
                                     focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1,
-                                      ),
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(4.0),
-                                        topRight: Radius.circular(4.0),
-                                      ),
+                                    borderSide: BorderSide(
+                                      color: Colors.black45,
+                                      width: 1,
                                     ),
+                                  ),
                                   ),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            ElevatedButton(
-                              style: ButtonStyle(
-                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    )
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              ElevatedButton(
+                                style: ButtonStyle(
+                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      )
+                                  ),
+                                  backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                                  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                                 ),
-                                backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                                onPressed: () {
+                                },
+                                child: Text('ADD'),
                               ),
-                              onPressed: () {
-                              },
-                              child: Text('ADD'),
-                            ),
-                            ElevatedButton(
-                              style: ButtonStyle(
-                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    )
+                              ElevatedButton(
+                                style: ButtonStyle(
+                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      )
+                                  ),
+                                  backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                                  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                                 ),
-                                backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                                onPressed: () {
+                                },
+                                child: Text('REMOVE'),
                               ),
-                              onPressed: () {
-                              },
-                              child: Text('REMOVE'),
-                            ),
-                            ElevatedButton(
-                              style: ButtonStyle(
-                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    )
+                              ElevatedButton(
+                                style: ButtonStyle(
+                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      )
+                                  ),
+                                  backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                                  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                                 ),
-                                backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                              ),
-                              onPressed: () {
-                              },
-                              child: Text('SHOW'),
-                            )
-                          ],
+                                onPressed: () {
+                                },
+                                child: Text('SHOW'),
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     ),
