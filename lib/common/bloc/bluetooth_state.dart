@@ -15,12 +15,15 @@ class FirstTimeAppOpen extends DataState {
   List<Object> get props => [];
 }
 
-
 class NotFirstTimeAppOpen extends DataState {
   @override
   List<Object> get props => [];
 }
 
+class PermissionsNotGranted extends DataState {
+  @override
+  List<Object> get props => [];
+}
 
 class StateIniital extends DataState {}
 

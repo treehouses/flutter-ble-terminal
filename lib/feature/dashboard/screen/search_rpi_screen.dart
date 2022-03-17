@@ -39,13 +39,14 @@ class _SearchRpiScreenState extends State<SearchRpiScreen> {
                   IconButton(
                     icon: Icon(Icons.refresh),
                     onPressed: () =>
-                    context.read<BluetoothCubit>()..fetchDeviceList(true),
+                        context.read<BluetoothCubit>()..fetchDeviceList(true),
                   )
                 ],
               ),
               body: BlocConsumer<BluetoothCubit, DataState>(
                 listener: (con, state) {
-                  if (state is StateDeviceConnected) {
+                  bool isActive = ModalRoute.of(context)?.isCurrent ?? false;
+                  if (state is StateDeviceConnected && isActive) {
                     Navigator.of(con).pushNamed(Routes.dashboard);
                   }
                 },
@@ -60,37 +61,38 @@ class _SearchRpiScreenState extends State<SearchRpiScreen> {
                       },
                       child: SingleChildScrollView(
                           child: Column(
-                            children: state.list
-                                .map((d) => ListTile(
-                              title: Text(d.name),
-                              subtitle: Text(d.id.toString()),
-                              trailing: StreamBuilder<BluetoothDeviceState>(
-                                stream: d.state,
-                                initialData: BluetoothDeviceState.disconnected,
-                                builder: (c, snapshot) {
-                                  if (snapshot.data ==
-                                      BluetoothDeviceState.connected) {
-                                    return RaisedButton(
-                                      child: Text('OPEN'),
-                                      onPressed: () => context
-                                          .read<BluetoothCubit>()
-                                          .checkDeviceConnected(),
-                                    );
-                                  } else {
-                                    return RaisedButton(
-                                      child: Text('CONNECT'),
-                                      onPressed: () {
-                                        context.read<BluetoothCubit>()
-                                          ..fetchServicesAndConnect(d);
-                                      },
-                                    );
-                                  }
-                                  return Text(snapshot.data.toString());
-                                },
-                              ),
-                            ))
-                                .toList(),
-                          )),
+                        children: state.list
+                            .map((d) => ListTile(
+                                  title: Text(d.name),
+                                  subtitle: Text(d.id.toString()),
+                                  trailing: StreamBuilder<BluetoothDeviceState>(
+                                    stream: d.state,
+                                    initialData:
+                                        BluetoothDeviceState.disconnected,
+                                    builder: (c, snapshot) {
+                                      if (snapshot.data ==
+                                          BluetoothDeviceState.connected) {
+                                        return RaisedButton(
+                                          child: Text('OPEN'),
+                                          onPressed: () => context
+                                              .read<BluetoothCubit>()
+                                              .checkDeviceConnected(),
+                                        );
+                                      } else {
+                                        return RaisedButton(
+                                          child: Text('CONNECT'),
+                                          onPressed: () {
+                                            context.read<BluetoothCubit>()
+                                              ..fetchServicesAndConnect(d);
+                                          },
+                                        );
+                                      }
+                                      return Text(snapshot.data.toString());
+                                    },
+                                  ),
+                                ))
+                            .toList(),
+                      )),
                     );
                   } else if (state is StateLoading) {
                     return Center(
@@ -114,6 +116,5 @@ class _SearchRpiScreenState extends State<SearchRpiScreen> {
           }
           return BluetoothOffScreen(state: state);
         });
-
   }
 }
