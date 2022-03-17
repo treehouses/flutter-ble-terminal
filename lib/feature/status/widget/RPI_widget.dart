@@ -17,8 +17,11 @@ class RPIWidget extends StatelessWidget{
                 fontWeight: FontWeight.bold
               ),
             ),
-            Icon(
-              Icons.edit,
+            Image.asset(
+              'assets/icons/ic_pencil.png',
+              width: 100,
+              height: 100,
+              fit: BoxFit.cover,
             )
           ],
         ),

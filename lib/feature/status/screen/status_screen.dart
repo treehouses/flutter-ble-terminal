@@ -42,7 +42,16 @@ class _StatusScreenState extends State<StatusScreen>{
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: MeasurableWidget(),
-            )
+            ),
+            BluetoothWidget(),
+            NetworkWidget(),
+            // Row(
+            //   children: [
+                RPIWidget(),
+            //     CLIWidget()
+            //   ],
+            // ),
+            // MeasurableWidget()
           ],
         )
       ),

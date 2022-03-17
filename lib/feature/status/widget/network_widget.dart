@@ -17,8 +17,22 @@ class NetworkWidget extends StatelessWidget{
                 fontWeight: FontWeight.bold
               ),
             ),
-            Icon(
-              Icons.language,
+            Image.asset(
+              'assets/icons/ic_globe.svg',
+              width: 30,
+              height: 30,
+              fit: BoxFit.cover,
+            )
+          ],
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Image.asset(
+              'assets/icons/ic_wifi.png',
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
             ),
           ],
         ),
