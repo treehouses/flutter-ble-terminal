@@ -8,33 +8,28 @@ class NetworkWidget extends StatelessWidget{
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Text(
-              'Network',
-              style: TextStyle(
-                fontWeight: FontWeight.bold
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Text(
+                'Network',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold
+                ),
               ),
-            ),
-            Image.asset(
-              'assets/icons/ic_globe.svg',
-              width: 30,
-              height: 30,
-              fit: BoxFit.cover,
-            )
-          ],
-        ),
-        Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Image.asset(
-              'assets/icons/ic_wifi.png',
-              width: 50,
-              height: 50,
-              fit: BoxFit.cover,
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
+                child: Image.asset(
+                  'assets/icons/ic_globe.svg',
+                  width: 30,
+                  height: 30,
+                  fit: BoxFit.cover,
+                ),
+              )
+            ],
+          ),
         ),
         Container(
           decoration: BoxDecoration(
@@ -46,11 +41,14 @@ class NetworkWidget extends StatelessWidget{
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Image.asset(
-                    'assets/icons/ic_wifi.png',
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.cover,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/icons/ic_wifi.png',
+                      width: 40,
+                      height: 40,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   Text(
                     'Checking Network Mode.....',
@@ -60,18 +58,24 @@ class NetworkWidget extends StatelessWidget{
                   )
                 ],
               ),
-              Align(
-                alignment: AlignmentDirectional(-1, 0),
-                child: Text(
-                  'IP Address: Checking.....',
-                  textAlign: TextAlign.start,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Align(
+                  alignment: AlignmentDirectional(-1, 0),
+                  child: Text(
+                    'IP Address: Checking.....',
+                    textAlign: TextAlign.start,
+                  ),
                 ),
               ),
-              Align(
-                alignment: AlignmentDirectional(-1, 0),
-                child: Text(
-                  'SSID: Checking.....',
-                  textAlign: TextAlign.start,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Align(
+                  alignment: AlignmentDirectional(-1, 0),
+                  child: Text(
+                    'SSID: Checking.....',
+                    textAlign: TextAlign.start,
+                  ),
                 ),
               ),
             ],
