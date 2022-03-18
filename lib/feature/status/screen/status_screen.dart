@@ -45,13 +45,7 @@ class _StatusScreenState extends State<StatusScreen>{
             ),
             BluetoothWidget(),
             NetworkWidget(),
-            // Row(
-            //   children: [
-                RPIWidget(),
-            //     CLIWidget()
-            //   ],
-            // ),
-            // MeasurableWidget()
+            RPIWidget(),
           ],
         )
       ),

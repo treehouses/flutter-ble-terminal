@@ -9,35 +9,42 @@ class BluetoothWidget extends StatelessWidget{
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Text(
-              'Bluetooth',
-              style: TextStyle(
-                fontWeight: FontWeight.bold
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Text(
+                'Bluetooth',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold
+                ),
               ),
-            ),
-            Expanded(
-              child: Align(
-                alignment: AlignmentDirectional(1, 0),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                        )
+              Expanded(
+                child: Align(
+                  alignment: AlignmentDirectional(1, 0),
+                  child: Container(
+                    width: 100.0,
+                    height: 25.0,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            )
+                        ),
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                      ),
+                      onPressed: () {
+                      },
+                      child: Text('Refresh'),
                     ),
-                    backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                    foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                  ),
-                  onPressed: () {
-                  },
-                  child: Text('Refresh'),
+                  )
                 )
               )
-            )
-          ],
+            ],
+          ),
         ),
           Container(
             decoration: BoxDecoration(
@@ -47,11 +54,14 @@ class BluetoothWidget extends StatelessWidget{
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Image.asset(
-                  'assets/icons/ic_bluetooth_icon.png',
-                  width: 50,
-                  height: 50,
-                  fit: BoxFit.cover,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(
+                    'assets/icons/ic_bluetooth_icon.png',
+                    width: 40,
+                    height: 40,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 Text(
                   'Bluetooth RPI Connection: Checking.....',
