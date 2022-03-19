@@ -13,16 +13,22 @@ class CLIWidget extends StatelessWidget{
         children: [
           Row(
             children: [
-              Image.asset(
-                'assets/icons/ic_update_alert.png',
-                width: 50,
-                height: 50,
-                fit: BoxFit.cover,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  'assets/icons/ic_update_alert.png',
+                  width: 40,
+                  height: 40,
+                  fit: BoxFit.cover,
+                ),
               ),
-              Text(
-                'CLI Version',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'CLI Version',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold
+                  ),
                 ),
               )
             ],
