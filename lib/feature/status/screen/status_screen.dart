@@ -19,28 +19,28 @@ class _StatusScreenState extends State<StatusScreen>{
         child: Column(
           children: <Widget> [
             Padding(
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
               child: BluetoothWidget(),
             ),
             Padding(
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
               child: NetworkWidget(),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
+                  padding: const EdgeInsets.fromLTRB(10.0, 5.0, 5.0, 5.0),
                   child: RPIWidget(),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
+                  padding: const EdgeInsets.fromLTRB(5.0, 5.0, 10.0, 5.0),
                   child: CLIWidget(),
                 )
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
               child: MeasurableWidget(),
             ),
           ],
