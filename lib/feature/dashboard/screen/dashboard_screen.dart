@@ -6,6 +6,7 @@ import 'package:treehousesble/common/bloc/bluetooth_state.dart';
 import 'package:treehousesble/common/navigation/nav.dart';
 import 'package:treehousesble/common/route/routes.dart';
 import 'package:treehousesble/feature/dashboard/screen/search_screen.dart';
+import 'package:treehousesble/feature/dashboard/widget/fixed_center_docked.dart';
 import 'package:treehousesble/feature/dashboard/widget/fab_bottom_app_bar.dart';
 import 'package:treehousesble/feature/network/screen/network_screen.dart';
 import 'package:treehousesble/feature/settings/screen/settings_screen.dart';
@@ -19,11 +20,20 @@ class FindDevicesScreen extends StatefulWidget {
 
 class _FindDevicesScreenState extends State<FindDevicesScreen> {
   int pageIndex = 0;
+  var f = const FixedCenterDockedFabLocation();
 
   @override
   void initState() {
     super.initState();
     context.read<BluetoothCubit>()..checkDeviceConnected();
+  }
+
+  static _dockedFabLocation(context) {
+    if (MediaQuery.of(context).viewInsets.bottom != 0) {
+      return FixedCenterDockedFabLocation(context: context);
+    } else {
+      return FloatingActionButtonLocation.centerDocked;
+    }
   }
 
   Widget getHome() {
@@ -81,6 +91,7 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
       appBar: AppBar(
         title: Text(pageName(pageIndex)),
       ),
+      resizeToAvoidBottomInset: false,
       body: pages(pageIndex),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
