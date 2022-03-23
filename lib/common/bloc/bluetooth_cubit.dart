@@ -42,9 +42,11 @@ class BluetoothCubit extends Cubit<DataState> {
 
   writeMessage(String command) async{
     if(characteristic != null){
-      await characteristic?.write(_sendCommand(command), withoutResponse: true);
+      await characteristic?.write(_sendCommand(command), withoutResponse: false);
       print("SEND MESSAGE " + command);
       readMessage();
+    }else{
+      print("CHARACTERSTIC IS NULL");
     }
   }
 
