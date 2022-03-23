@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_blue/flutter_blue.dart';
 import 'package:treehousesble/common/bloc/bluetooth_cubit.dart';
 import 'package:treehousesble/common/bloc/bluetooth_state.dart';
-import 'package:treehousesble/common/navigation/nav.dart';
-import 'package:treehousesble/common/route/routes.dart';
-import 'package:treehousesble/feature/dashboard/screen/search_screen.dart';
-import 'package:treehousesble/feature/dashboard/widget/fixed_center_docked.dart';
 import 'package:treehousesble/feature/dashboard/widget/fab_bottom_app_bar.dart';
 import 'package:treehousesble/feature/network/screen/network_screen.dart';
 import 'package:treehousesble/feature/settings/screen/settings_screen.dart';
@@ -20,7 +15,6 @@ class FindDevicesScreen extends StatefulWidget {
 
 class _FindDevicesScreenState extends State<FindDevicesScreen> {
   int pageIndex = 0;
-  var f = const FixedCenterDockedFabLocation();
 
   @override
   void initState() {
