@@ -28,13 +28,6 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
     context.read<BluetoothCubit>()..checkDeviceConnected();
   }
 
-  static _dockedFabLocation(context) {
-    if (MediaQuery.of(context).viewInsets.bottom != 0) {
-      return FixedCenterDockedFabLocation(context: context);
-    } else {
-      return FloatingActionButtonLocation.centerDocked;
-    }
-  }
 
   Widget getHome() {
     return BlocConsumer(
