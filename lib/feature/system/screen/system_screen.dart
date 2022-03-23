@@ -19,16 +19,16 @@ class _SystemScreenState extends State<SystemScreen> {
         appBar:  TabBar(
           labelColor: Theme.of(context).primaryColor,
           tabs: [
-            Tab(text: "SSH",),
-            Tab(text: "Internet",),
             Tab(text: "Home",),
+            Tab(text: "SSH",),
+            Tab(text: "Internet",)
           ],
         ),
         body: TabBarView(
           children: [
-            SystemSSHWidget(),
-            SystemInternetWidget(),
             SystemHomeWidget(),
+            SystemSSHWidget(),
+            SystemInternetWidget()
           ],
         ),
       ),
