@@ -16,6 +16,7 @@ class RPIWidget extends StatelessWidget{
               Text(
                 'RPI Details',
                 style: TextStyle(
+                  fontSize: 15.0,
                   fontWeight: FontWeight.bold
                 ),
               ),
@@ -36,55 +37,58 @@ class RPIWidget extends StatelessWidget{
             color: Color(0xFFF5F5F5),
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Hostname: Checking..',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold
-                  )
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Model: Checking..',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Hostname: Checking..',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    )
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'CPU: Checking..',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Model: Checking..',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Image Version: Checking..',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'CPU: Checking..',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Remote Version: Checking',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Image Version: Checking..',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),
                   ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Remote Version: Checking',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         )
       ],

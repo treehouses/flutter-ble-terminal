@@ -17,8 +17,8 @@ class CLIWidget extends StatelessWidget{
                 padding: const EdgeInsets.all(8.0),
                 child: Image.asset(
                   'assets/icons/ic_update_alert.png',
-                  width: 40,
-                  height: 40,
+                  width: 45,
+                  height: 45,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -27,6 +27,7 @@ class CLIWidget extends StatelessWidget{
                 child: Text(
                   'CLI Version',
                   style: TextStyle(
+                    fontSize: 15.0,
                     fontWeight: FontWeight.bold
                   ),
                 ),

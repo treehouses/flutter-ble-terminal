@@ -17,6 +17,7 @@ class BluetoothWidget extends StatelessWidget{
               Text(
                 'Bluetooth',
                 style: TextStyle(
+                  fontSize: 15.0,
                   fontWeight: FontWeight.bold
                 ),
               ),
@@ -58,8 +59,8 @@ class BluetoothWidget extends StatelessWidget{
                   padding: const EdgeInsets.all(8.0),
                   child: Image.asset(
                     'assets/icons/ic_bluetooth_icon.png',
-                    width: 40,
-                    height: 40,
+                    width: 45,
+                    height: 45,
                     fit: BoxFit.cover,
                   ),
                 ),
