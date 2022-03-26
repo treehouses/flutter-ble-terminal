@@ -18,10 +18,11 @@ class SearchRpiScreen extends StatefulWidget {
 }
 
 class _SearchRpiScreenState extends State<SearchRpiScreen> {
+  var filter = false;
   @override
   void initState() {
     super.initState();
-    context.read<BluetoothCubit>()..fetchDeviceList(true);
+    context.read<BluetoothCubit>()..fetchDeviceList(filter);
   }
 
   @override
@@ -36,10 +37,19 @@ class _SearchRpiScreenState extends State<SearchRpiScreen> {
               appBar: AppBar(
                 title: Text("Search RPI"),
                 actions: [
+                  Switch(
+                    onChanged: (bool value) {
+                      setState(() {
+                        filter = value;
+                      });
+                    },
+                    value: filter,
+                    activeColor: Colors.blue[500],
+                  ),
                   IconButton(
                     icon: Icon(Icons.refresh),
                     onPressed: () =>
-                        context.read<BluetoothCubit>()..fetchDeviceList(true),
+                        context.read<BluetoothCubit>()..fetchDeviceList(filter),
                   )
                 ],
               ),
@@ -56,7 +66,7 @@ class _SearchRpiScreenState extends State<SearchRpiScreen> {
                     print("FOUND DEVICES");
                     return RefreshIndicator(
                       onRefresh: () {
-                        context.read<BluetoothCubit>()..fetchDeviceList(true);
+                        context.read<BluetoothCubit>()..fetchDeviceList(filter);
                         return new Future.value();
                       },
                       child: SingleChildScrollView(
@@ -103,7 +113,7 @@ class _SearchRpiScreenState extends State<SearchRpiScreen> {
                       child: RaisedButton(
                         onPressed: () {
                           BlocProvider.of<BluetoothCubit>(context)
-                            ..fetchDeviceList(true);
+                            ..fetchDeviceList(filter);
                         },
                         child: Text("Retry"),
                       ),
