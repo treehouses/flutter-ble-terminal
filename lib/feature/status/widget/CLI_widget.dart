@@ -14,7 +14,7 @@ class CLIWidget extends StatelessWidget{
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Image.asset(
                   'assets/icons/ic_update_alert.png',
                   width: 45,
@@ -44,19 +44,22 @@ class CLIWidget extends StatelessWidget{
               ),
             ),
           ),
-          ElevatedButton(
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    )
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      )
+                  ),
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                 ),
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-              ),
-              onPressed: () {
-              },
-              child: Text('Upgrade'),
+                onPressed: () {
+                },
+                child: Text('Upgrade'),
+            ),
           )
         ],
       ),
