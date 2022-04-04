@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 import 'package:treehousesble/common/bloc/bluetooth_cubit.dart';
 
-class SystemShutdownRebootWidget extends StatelessWidget {
+class ShutdownRebootWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
