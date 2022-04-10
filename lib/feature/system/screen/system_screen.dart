@@ -12,14 +12,6 @@ class SystemScreen extends StatefulWidget{
 }
 
 class _SystemScreenState extends State<SystemScreen> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<BluetoothCubit>()..checkDeviceConnected();
-    context.read<BluetoothCubit>()
-      ..writeMessage("treehouses version");
-  
-  }
 
   @override
   Widget build(BuildContext context) {
