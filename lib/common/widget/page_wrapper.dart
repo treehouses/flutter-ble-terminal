@@ -14,7 +14,7 @@ class _PageWrapperState extends State<PageWrapper> {
   @override
   Widget build(BuildContext context) {
     if (widget.hasScaffold!) {
-      return Scaffold(body: widget.body);
+      return Scaffold( body: widget.body);
     } else {
       return widget.body;
     }
