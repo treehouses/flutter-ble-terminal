@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/src/provider.dart';
+import 'package:treehousesble/common/bloc/bluetooth_cubit.dart';
 import 'package:treehousesble/feature/system/widget/system_home_widget.dart';
 import 'package:treehousesble/feature/system/widget/system_internet_widget.dart';
 import 'package:treehousesble/feature/system/widget/system_ssh_widget.dart';
@@ -10,6 +12,15 @@ class SystemScreen extends StatefulWidget{
 }
 
 class _SystemScreenState extends State<SystemScreen> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<BluetoothCubit>()..checkDeviceConnected();
+    context.read<BluetoothCubit>()
+      ..writeMessage("treehouses version");
+  
+  }
+
   @override
   Widget build(BuildContext context) {
 

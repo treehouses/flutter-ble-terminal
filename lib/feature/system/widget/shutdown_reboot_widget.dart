@@ -3,7 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 import 'package:treehousesble/common/bloc/bluetooth_cubit.dart';
 
-class ShutdownRebootWidget extends StatelessWidget {
+class ShutdownRebootWidget extends StatefulWidget {
+  @override
+  State<ShutdownRebootWidget> createState() => _ShutdownRebootWidgetState();
+}
+
+class _ShutdownRebootWidgetState extends State<ShutdownRebootWidget> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<BluetoothCubit>()..checkDeviceConnected();
+  }
+
   @override
   Widget build(BuildContext context) {
     return
@@ -31,12 +42,8 @@ class ShutdownRebootWidget extends StatelessWidget {
                                   ..writeMessage("treehouses shutdown now");
                               },
                               icon:
-                              Image.asset(
-                                'assets/icons/shutdown.png',
-                                width: 200,
-                                height: 200,
-                                fit: BoxFit.cover,
-                              )
+                              Image.asset('assets/icons/shutdown.png'),
+                              iconSize: 100.0
                           ),
                           Text(
                             'Shutdown',
@@ -47,16 +54,13 @@ class ShutdownRebootWidget extends StatelessWidget {
                         children: [
                           IconButton(
                               onPressed: (){
+                                print("reboot pressed");
                                 context.read<BluetoothCubit>()
                                   ..writeMessage("treehouses reboots now");
                               },
                               icon:
-                              Image.asset(
-                                'assets/icons/restart.png',
-                                width: 125,
-                                height: 125,
-                                fit: BoxFit.cover,
-                              )
+                              Image.asset('assets/icons/restart.png'),
+                              iconSize: 100.0
                           ),
                           Text(
                             'Reboot',
@@ -71,5 +75,4 @@ class ShutdownRebootWidget extends StatelessWidget {
         ),
       );
   }
-  
 }
