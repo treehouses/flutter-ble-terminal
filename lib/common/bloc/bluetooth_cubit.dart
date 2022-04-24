@@ -9,6 +9,7 @@ import 'package:treehousesble/common/constants/app_constants.dart';
 import 'package:treehousesble/common/constants/constant.dart';
 import 'package:treehousesble/common/constants/strings.dart';
 import 'package:treehousesble/common/shared_pref/shared_pref.dart';
+import 'package:treehousesble/common/utils/log.dart';
 
 class BluetoothCubit extends Cubit<DataState> {
   BluetoothCubit() : super(StateDeviceNotConnected());
@@ -42,9 +43,15 @@ class BluetoothCubit extends Cubit<DataState> {
 
   writeMessage(String command) async{
     if(characteristic != null){
-      await characteristic?.write(_sendCommand(command), withoutResponse: false);
-      print("SEND MESSAGE " + command);
-      readMessage();
+      try {
+        await characteristic?.write(_sendCommand(command), withoutResponse: false);
+        print("SEND MESSAGE " + command);
+        readMessage();
+      } on Exception catch (e) {
+        print("catch error");
+        emit(BluetoothDisconnect(errormsg: "Bluetooth disconnected"));
+        characteristic = null;
+      }
     }else{
       print("CHARACTERSTIC IS NULL");
     }
@@ -57,8 +64,8 @@ class BluetoothCubit extends Cubit<DataState> {
       var responseString = utf8.decode(response);
       emit(StateReadSuccess(data: responseString));
     }
-
   }
+
 
   fetchDeviceList(bool filterPi) {
     emit(StateLoading());
@@ -76,7 +83,11 @@ class BluetoothCubit extends Cubit<DataState> {
         _addDeviceTolist(result.device, filterPi);
       }
     });
-    flutterBlue.startScan();
+    try {
+      flutterBlue.startScan();
+    } on Exception catch (e) {
+      print("scan error");
+    }
   }
 
   void _addDeviceTolist(BluetoothDevice device, bool filterPi) {

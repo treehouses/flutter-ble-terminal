@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:treehousesble/common/bloc/bluetooth_cubit.dart';
 import 'package:treehousesble/common/bloc/bluetooth_state.dart';
+import 'package:treehousesble/common/route/routes.dart';
 import 'package:treehousesble/feature/dashboard/widget/fab_bottom_app_bar.dart';
 import 'package:treehousesble/feature/network/screen/network_screen.dart';
 import 'package:treehousesble/feature/settings/screen/settings_screen.dart';
 import 'package:treehousesble/feature/system/screen/system_screen.dart';
 import 'package:treehousesble/feature/terminal/screen/terminal_screen.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class FindDevicesScreen extends StatefulWidget {
   @override
@@ -26,8 +28,16 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
   Widget getHome() {
     return BlocConsumer(
         bloc: context.read<BluetoothCubit>(),
-        listener: (con, state) {},
+        listener: (con, state) {
+          print(state.toString());
+          print("listener state");
+          if (state is BluetoothDisconnect){
+            Fluttertoast.showToast(msg: state.errormsg!);
+            Navigator.of(context).pushNamed(Routes.search);
+          }
+        },
         builder: (context, state) {
+          print(state.toString());
           if (state is StateDeviceConnected) {
             return Text("Connected to device " +
                 state.characteristic.deviceId.toString());

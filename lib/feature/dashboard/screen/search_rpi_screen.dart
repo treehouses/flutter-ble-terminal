@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:treehousesble/common/bloc/bluetooth_cubit.dart';
 import 'package:treehousesble/common/bloc/bluetooth_state.dart';
 import 'package:treehousesble/common/navigation/nav.dart';
@@ -56,7 +57,10 @@ class _SearchRpiScreenState extends State<SearchRpiScreen> {
               body: BlocConsumer<BluetoothCubit, DataState>(
                 listener: (con, state) {
                   bool isActive = ModalRoute.of(context)?.isCurrent ?? false;
-                  if (state is StateDeviceConnected && isActive) {
+                  if (state is BluetoothDisconnect){
+                    Fluttertoast.showToast(msg: state.errormsg!);
+                    Navigator.of(context).pushNamed(Routes.search);
+                  } else if (state is StateDeviceConnected && isActive) {
                     Navigator.of(con).pushNamed(Routes.dashboard);
                   }
                 },

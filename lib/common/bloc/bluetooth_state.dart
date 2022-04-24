@@ -1,6 +1,15 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 
+class BluetoothDisconnect extends DataState {
+  final String? errormsg;
+
+  const BluetoothDisconnect({this.errormsg});
+
+  @override
+  List<Object> get props => [];
+}
+
 class DataState extends Equatable {
   final dynamic data;
 
