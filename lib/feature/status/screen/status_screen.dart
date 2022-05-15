@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:treehousesble/feature/status/widget/RPI_and_CLI_widget.dart';
+import 'package:treehousesble/feature/status/widget/rpi_detail_widget.dart';
 import 'package:treehousesble/feature/status/widget/bluetooth_widget.dart';
 import 'package:treehousesble/feature/status/widget/measurables_widget.dart';
 import 'package:treehousesble/feature/status/widget/network_widget.dart';

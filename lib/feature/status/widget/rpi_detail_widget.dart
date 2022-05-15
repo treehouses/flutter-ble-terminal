@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-import 'CLI_widget.dart';
-import 'RPI_widget.dart';
+import 'cli_widget.dart';
+import 'rpi_widget.dart';
 
 class RPICLIWidget extends StatelessWidget{
   @override
