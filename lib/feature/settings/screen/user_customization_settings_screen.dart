@@ -11,6 +11,7 @@ class _UserCustomizationSettingsScreenState extends State<UserCustomizationSetti
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("User Customization"),),
         body: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
