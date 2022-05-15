@@ -21,11 +21,11 @@ class NetworkWidget extends StatelessWidget{
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Image.asset(
                   'assets/icons/ic_globe.svg',
-                  width: 30,
-                  height: 30,
+                  width: 20,
+                  height: 20,
                   fit: BoxFit.cover,
                 ),
               )

@@ -8,30 +8,6 @@ class RPIWidget extends StatelessWidget{
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.max,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Text(
-                'RPI Details',
-                style: TextStyle(
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.bold
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
-                child: Image.asset(
-                  'assets/icons/ic_pencil.png',
-                  width: 30,
-                  height: 30,
-                  fit: BoxFit.cover,
-                ),
-              )
-            ],
-          ),
-        ),
         Container(
           decoration: BoxDecoration(
             color: Color(0xFFF5F5F5),
