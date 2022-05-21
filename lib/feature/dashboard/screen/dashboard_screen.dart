@@ -7,6 +7,7 @@ import 'package:treehousesble/feature/network/screen/network_screen.dart';
 import 'package:treehousesble/feature/settings/screen/settings_screen.dart';
 import 'package:treehousesble/feature/system/screen/system_screen.dart';
 import 'package:treehousesble/feature/terminal/screen/terminal_screen.dart';
+import 'package:treehousesble/feature/status/screen/status_screen.dart';
 
 class FindDevicesScreen extends StatefulWidget {
   @override
@@ -48,6 +49,8 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
         return NetWorkScreen();
       case 3:
         return SettingsScreen();
+      case 4:
+        return StatusScreen();
       case 6:
         return TerminalScreen();
       default:
@@ -67,6 +70,8 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
         return "Network";
       case 3:
         return "Settings";
+      case 4:
+        return "Status";
       default:
         return "Home";
     }
@@ -96,6 +101,7 @@ class _FindDevicesScreenState extends State<FindDevicesScreen> {
                 iconData: Icons.branding_watermark_outlined, text: 'System'),
             FABBottomAppBarItem(iconData: Icons.network_wifi, text: 'Network'),
             FABBottomAppBarItem(iconData: Icons.settings, text: 'Settings'),
+            FABBottomAppBarItem(iconData: Icons.airplay, text: 'Status')
           ],
           notchedShape: CircularNotchedRectangle(),
           color: Colors.black54,

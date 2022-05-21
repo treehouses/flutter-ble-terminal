@@ -18,7 +18,7 @@ class FABBottomAppBar extends StatefulWidget {
     required this.notchedShape,
     required this.onTabSelected,
   }) {
-    assert(this.items.length == 2 || this.items.length == 4);
+    assert(this.items.length == 2 || this.items.length == 5);
   }
   final List<FABBottomAppBarItem> items;
   final String centerItemText;
