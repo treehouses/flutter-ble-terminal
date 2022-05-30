@@ -1,16 +1,24 @@
 # treehouses ble terminal
 
-Treehouses remote ble
+Treehouses Remote Ble
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Install [Python-BLE-Server](https://github.com/treehouses/python-ble-server) on your RPI
 
-A few resources to get you started if this is your first Flutter project:
+### Steps to Install:
+1. SSH into your RPI via your terminal, recommend to use Git Bash
+2. Enter root account via `sudo -s`
+3. Clone the repo into your RPI via `git clone https://github.com/treehouses/python-ble-server`
+4. Enter the directory via `cd python-ble-server`
+5. Start server via "python3 serverble.py"
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Once the server is running, your RPI will be visible to your Remote BLE app
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## How to use app
+
+1. Install the application on your device, application is named Treehouses RemoteII
+2. For application to work, enable Bluetooth connectivity on your device
+3. Press the search button in the middle of the bottom nav bar
+4. If your RPI device appears, press `Connect` to connect to your device
+5. Once connected, you can expand the Service tile and type messages into the input box to send them to your RPI. Your RPI output will be shown below
