@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:treehousesble/common/bloc/bluetooth_cubit.dart';
 import 'package:treehousesble/common/bloc/bluetooth_state.dart';
 import 'package:treehousesble/feature/dashboard/screen/search_rpi_screen.dart';
-import 'package:treehousesble/feature/system/screen/system_screen.dart';
 
 import 'onboard_page.dart';
 

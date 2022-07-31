@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:treehousesble/app/theme.dart';
 
 class NetworkWidget extends StatelessWidget{
   @override

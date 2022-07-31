@@ -4,13 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:treehousesble/common/bloc/bluetooth_cubit.dart';
 import 'package:treehousesble/common/bloc/bluetooth_state.dart';
-import 'package:treehousesble/common/navigation/nav.dart';
 import 'package:treehousesble/common/route/routes.dart';
-import 'package:treehousesble/common/widget/page_wrapper.dart';
-import 'package:treehousesble/feature/dashboard/widget/scan_result_tile.dart';
 
 import 'bluetooth_off_screen.dart';
-import 'device_screen.dart';
 
 class SearchRpiScreen extends StatefulWidget {
   @override
