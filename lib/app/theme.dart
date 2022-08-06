@@ -27,7 +27,6 @@ class CustomTheme {
       iconTheme: IconThemeData(
         color: Colors.white,
       ),
-      brightness: Brightness.light,
       systemOverlayStyle: SystemUiOverlayStyle.light,
     ),
     dividerColor: Colors.black,
@@ -69,7 +68,6 @@ class CustomTheme {
       iconTheme: IconThemeData(
         color: Colors.blue,
       ),
-      brightness: Brightness.dark,
       systemOverlayStyle: SystemUiOverlayStyle.dark,
     ),
     dividerColor: Colors.white,
