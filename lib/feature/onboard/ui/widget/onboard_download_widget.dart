@@ -68,7 +68,7 @@ class _OnboardDownloadWidgetState extends State<OnboardDownloadWidget> {
                   foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                 ),
                 onPressed: () {
-                  launch('https://treehouses.io/#!pages/download.md');
+                  launchUrl(Uri.parse('https://treehouses.io/#!pages/download.md'));
                 },
                 child: Text('Download'),
               )
