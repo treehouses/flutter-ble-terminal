@@ -78,14 +78,14 @@ class _SearchRpiScreenState extends State<SearchRpiScreen> {
                                     builder: (c, snapshot) {
                                       if (snapshot.data ==
                                           BluetoothDeviceState.connected) {
-                                        return RaisedButton(
+                                        return ElevatedButton(
                                           child: Text('OPEN'),
                                           onPressed: () => context
                                               .read<BluetoothCubit>()
                                               .checkDeviceConnected(),
                                         );
                                       } else {
-                                        return RaisedButton(
+                                        return ElevatedButton(
                                           child: Text('CONNECT'),
                                           onPressed: () {
                                             context.read<BluetoothCubit>()
@@ -106,7 +106,7 @@ class _SearchRpiScreenState extends State<SearchRpiScreen> {
                     );
                   } else if (state is StateError) {
                     return Container(
-                      child: RaisedButton(
+                      child: ElevatedButton(
                         onPressed: () {
                           BlocProvider.of<BluetoothCubit>(context)
                             ..fetchDeviceList(filter);
