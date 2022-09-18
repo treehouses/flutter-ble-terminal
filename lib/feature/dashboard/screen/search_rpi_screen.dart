@@ -93,7 +93,6 @@ class _SearchRpiScreenState extends State<SearchRpiScreen> {
                                           },
                                         );
                                       }
-                                      return Text(snapshot.data.toString());
                                     },
                                   ),
                                 ))
