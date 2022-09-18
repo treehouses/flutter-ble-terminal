@@ -106,7 +106,7 @@ class _DeviceScreenState extends State<DeviceScreen> {
                   text = snapshot.data.toString().substring(21).toUpperCase();
                   break;
               }
-              return FlatButton(
+              return TextButton(
                   onPressed: onPressed,
                   child: Text(
                     text,
