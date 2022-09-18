@@ -115,11 +115,11 @@ class BluetoothCubit extends Cubit<DataState> {
   bool checkIfPi(BluetoothDevice device, bool filterPi) {
     if (filterPi) {
       bool isPi = false;
-      for (int i = 0; i < AppConstants.PI_ADDRESS.length; i++) {
+      for (int i = 0; i < AppConstants.piAddress.length; i++) {
         if (device.id
             .toString()
             .toLowerCase()
-            .startsWith(AppConstants.PI_ADDRESS[i].toLowerCase())) {
+            .startsWith(AppConstants.piAddress[i].toLowerCase())) {
           isPi = true;
           break;
         }
