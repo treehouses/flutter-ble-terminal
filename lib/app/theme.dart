@@ -34,7 +34,6 @@ class CustomTheme {
     scaffoldBackgroundColor: Colors.white,
     iconTheme: IconThemeData(color: lightGray),
     bottomAppBarColor: Colors.white,
-    buttonColor: Colors.white,
     // fontFamily: fontFamily,
     textTheme: TextTheme(
       headline1: TextStyle(
@@ -79,7 +78,6 @@ class CustomTheme {
     bottomAppBarColor: Color(0xff1F242B),
     scaffoldBackgroundColor: darkBackgroundColor,
     iconTheme: IconThemeData(color: Colors.white),
-    buttonColor: Colors.black,
     textTheme: TextTheme(
       headline1: TextStyle(
         color: darkTextColor,
