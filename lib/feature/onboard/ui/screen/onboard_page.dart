@@ -4,8 +4,8 @@ import 'package:treehousesble/feature/onboard/ui/widget/onboard_download_widget.
 import '../widget/onboard_widget.dart';
 
 class OnboardPage extends StatelessWidget {
-   PageController _pageController = PageController();
-  int currentIndex = 0;
+  final PageController _pageController = PageController();
+  final int currentIndex = 0;
 
 
   @override

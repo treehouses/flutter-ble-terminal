@@ -4,7 +4,7 @@ import 'package:treehousesble/common/shared_pref/shared_pref.dart';
 import 'package:treehousesble/common/widget/page_wrapper.dart';
 
 class OnboardWidget extends StatefulWidget {
-  Function() onNext;
+  final Function() onNext;
   OnboardWidget(this.onNext);
 
 

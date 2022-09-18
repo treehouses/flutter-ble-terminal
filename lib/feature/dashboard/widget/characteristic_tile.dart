@@ -9,7 +9,7 @@ class CharacteristicTile extends StatelessWidget {
   final VoidCallback? onReadPressed;
   final Function(String)? onWritePressed;
   final VoidCallback? onNotificationPressed;
-  TextEditingController inputController = new TextEditingController();
+  final TextEditingController inputController = new TextEditingController();
 
   CharacteristicTile({Key? key,
     required this.characteristic,
