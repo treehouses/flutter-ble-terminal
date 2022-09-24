@@ -78,19 +78,27 @@ class _SearchRpiScreenState extends State<SearchRpiScreen> {
                                     builder: (c, snapshot) {
                                       if (snapshot.data ==
                                           BluetoothDeviceState.connected) {
-                                        return ElevatedButton(
-                                          child: Text('OPEN'),
-                                          onPressed: () => context
-                                              .read<BluetoothCubit>()
-                                              .checkDeviceConnected(),
+                                        return SizedBox(
+                                          width: 90,
+                                          height: 40,
+                                          child: ElevatedButton(
+                                            child: Text('OPEN'),
+                                            onPressed: () => context
+                                                .read<BluetoothCubit>()
+                                                .checkDeviceConnected(),
+                                          ),
                                         );
                                       } else {
-                                        return ElevatedButton(
-                                          child: Text('CONNECT'),
-                                          onPressed: () {
-                                            context.read<BluetoothCubit>()
-                                              ..fetchServicesAndConnect(d);
-                                          },
+                                        return SizedBox(
+                                          width: 90,
+                                          height: 40,
+                                          child: ElevatedButton(
+                                            child: Text('CONNECT'),
+                                            onPressed: () {
+                                              context.read<BluetoothCubit>()
+                                                ..fetchServicesAndConnect(d);
+                                            },
+                                          ),
                                         );
                                       }
                                     },
