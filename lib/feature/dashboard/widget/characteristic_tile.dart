@@ -9,7 +9,7 @@ class CharacteristicTile extends StatelessWidget {
   final VoidCallback? onReadPressed;
   final Function(String)? onWritePressed;
   final VoidCallback? onNotificationPressed;
-  TextEditingController inputController = new TextEditingController();
+  final TextEditingController inputController = new TextEditingController();
 
   CharacteristicTile({Key? key,
     required this.characteristic,
@@ -25,7 +25,7 @@ class CharacteristicTile extends StatelessWidget {
       stream: characteristic.value,
       initialData: characteristic.lastValue,
       builder: (c, snapshot) {
-        final value = snapshot.data;
+        //final value = snapshot.data;
         print(characteristic.serviceUuid.toString());
         // if(characteristic.serviceUuid.toString() != "6e400001-b5a3-f393-e0a9-e50e24dcca9e"){
         //

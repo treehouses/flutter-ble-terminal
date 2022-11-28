@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:treehousesble/app/app.dart';
 import 'package:treehousesble/common/bloc/bluetooth_state.dart';
 import 'package:treehousesble/common/constants/app_constants.dart';
 import 'package:treehousesble/common/constants/constant.dart';
@@ -116,11 +115,11 @@ class BluetoothCubit extends Cubit<DataState> {
   bool checkIfPi(BluetoothDevice device, bool filterPi) {
     if (filterPi) {
       bool isPi = false;
-      for (int i = 0; i < AppConstants.PI_ADDRESS.length; i++) {
+      for (int i = 0; i < AppConstants.piAddress.length; i++) {
         if (device.id
             .toString()
             .toLowerCase()
-            .startsWith(AppConstants.PI_ADDRESS[i].toLowerCase())) {
+            .startsWith(AppConstants.piAddress[i].toLowerCase())) {
           isPi = true;
           break;
         }

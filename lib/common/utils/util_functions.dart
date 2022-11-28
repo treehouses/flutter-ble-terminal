@@ -1,5 +1,3 @@
-import 'package:flutter/widgets.dart';
-
 class UtilFunctions {
   /// the int values in `params` have to be stringified otherwise excception
   /// occurs

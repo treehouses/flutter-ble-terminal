@@ -1,5 +1,5 @@
 class AppConstants{
-  static var PI_ADDRESS = [
+  static var piAddress= [
     "B8:27:EB",
     "DC:A6:32",
     "E4:5F:01",

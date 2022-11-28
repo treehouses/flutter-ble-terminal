@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:treehousesble/common/route/routes.dart';
 import 'package:treehousesble/feature/dashboard/screen/dashboard_page.dart';
-import 'package:treehousesble/feature/dashboard/screen/dashboard_screen.dart';
 import 'package:treehousesble/feature/dashboard/screen/search_rpi_screen.dart';
 import 'package:treehousesble/feature/onboard/ui/screen/landing_page.dart';
 import 'package:treehousesble/feature/onboard/ui/screen/onboard_page.dart';

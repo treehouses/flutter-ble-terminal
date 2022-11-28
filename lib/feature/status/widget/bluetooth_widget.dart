@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:treehousesble/app/theme.dart';
 
 class BluetoothWidget extends StatelessWidget{
   @override

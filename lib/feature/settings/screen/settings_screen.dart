@@ -69,17 +69,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           ListTile(
                               title: Text("Contributors"),
                               leading: Icon(Icons.people),
-                              onTap: () => launch("https://github.com/treehouses/flutter-ble-terminal/graphs/contributors")
+                              onTap: () => launchUrl(Uri.parse("https://github.com/treehouses/flutter-ble-terminal/graphs/contributors"))
                           ),
                           ListTile(
                               title: Text("About"),
                               leading: Icon(Icons.info),
-                              onTap: () => launch("https://treehouses.io/#!index.md")
+                              onTap: () => launchUrl(Uri.parse("https://treehouses.io/#!index.md"))
                           ),
                           ListTile(
                               title: Text("Report an Issue"),
                               leading: Icon(Icons.report_problem),
-                              onTap: () => launch("https://github.com/treehouses/flutter-ble-terminal/issues")
+                              onTap: () => launchUrl(Uri.parse("https://github.com/treehouses/flutter-ble-terminal/issues"))
                           )
                         ]
                     )
