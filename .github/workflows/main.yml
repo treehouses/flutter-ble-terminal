@@ -53,6 +53,8 @@ jobs:
         flutter pub get
         cd ios
         pod install
-
+        brew install tree
         
     - run: flutter build ios --release --no-codesign
+
+    - run: tree
